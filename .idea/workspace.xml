@@ -4,59 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="04d41666-c583-44e2-9837-ab4ebd29a39b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/siteanapradopersonal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/icon-192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/icon-512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/icon-maskable-192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/icons/icon-maskable-512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Agachamento.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Fotocard.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Gorda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Gordinha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Gordinho.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Gordo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Magrela.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Magrelo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Mnormal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Motivacao.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/NormalH.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Obesa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Obeso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Personalizado.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Screenshot_20240528_125545_Samsung Notes (1) (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Screenshot_20240528_125545_Samsung Notes (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/ana.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/ana1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/ana2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/balancabanana.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/bola.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/bolapreto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/consultoria2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cordapretobranco.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/flexibilidade.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/fotoana.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/fotoconsultoria.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/fotoprincipal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/images (7).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/images (9).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logoAna.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logodecapa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/logodecapa1x1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/tempo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/whats1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/consultoria.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imc.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/macronutrientes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="04d41666-c583-44e2-9837-ab4ebd29a39b" name="Changes" comment="anaprado">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +85,19 @@
       <option name="presentableId" value="Default" />
       <updated>1717180262805</updated>
     </task>
+    <task id="LOCAL-00001" summary="anaprado">
+      <option name="closed" value="true" />
+      <created>1717184411081</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717184411081</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="anaprado" />
+    <option name="LAST_COMMIT_MESSAGE" value="anaprado" />
   </component>
 </project>
