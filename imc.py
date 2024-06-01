@@ -74,8 +74,8 @@ def imc_calculator_view(page: ft.Page):
         actions=[ft.TextButton('Ok', on_click=close_banner)],
     )
 
-    altura = ft.TextField(label='Altura', label_style=ft.TextStyle(color=ft.colors.WHITE54), color=ft.colors.BLACK, text_vertical_align=ft.VerticalAlignment.CENTER, content_padding=10,  width=150, height=40, border_radius=ft.border_radius.all(30),border_color=ft.colors.BLACK54, text_align=ft.TextAlign.CENTER, text_style= ft.TextStyle(weight=ft.FontWeight.BOLD), text_size=20, hint_text='Por favor insira sua altura')
-    peso = ft.TextField(label='Peso', label_style=ft.TextStyle(color=ft.colors.WHITE54), color=ft.colors.BLACK, text_vertical_align=ft.VerticalAlignment.CENTER, content_padding=10,  width=150, height=40, border_radius=ft.border_radius.all(30),border_color=ft.colors.BLACK54, text_align=ft.TextAlign.CENTER, text_style= ft.TextStyle(weight=ft.FontWeight.BOLD), text_size=20, hint_text='Por favor insira seu peso')
+    altura = ft.TextField(label='Altura', label_style=ft.TextStyle(color=ft.colors.WHITE54), color=ft.colors.WHITE, text_vertical_align=ft.VerticalAlignment.CENTER, content_padding=10,  width=150, height=40, border_radius=ft.border_radius.all(30),border_color=ft.colors.WHITE54, text_align=ft.TextAlign.CENTER, text_style= ft.TextStyle(weight=ft.FontWeight.BOLD), text_size=20, hint_text='Por favor insira sua altura')
+    peso = ft.TextField(label='Peso', label_style=ft.TextStyle(color=ft.colors.WHITE54), color=ft.colors.WHITE, text_vertical_align=ft.VerticalAlignment.CENTER, content_padding=10,  width=150, height=40, border_radius=ft.border_radius.all(30),border_color=ft.colors.WHITE54, text_align=ft.TextAlign.CENTER, text_style= ft.TextStyle(weight=ft.FontWeight.BOLD), text_size=20, hint_text='Por favor insira seu peso')
     genero = ft.Dropdown(
         label='Gênero',
         width=200,
@@ -84,7 +84,7 @@ def imc_calculator_view(page: ft.Page):
         item_height=30,  # Tamanho do campo de selecao de itens
         autofocus=True,
         label_style=ft.TextStyle(italic=True, color=ft.colors.WHITE54),
-        color=ft.colors.BLACK,
+        color=ft.colors.WHITE,
         border_color=ft.colors.BLACK54,
         border=ft.InputBorder.OUTLINE,
         content_padding=ft.padding.symmetric(horizontal=30),
@@ -101,7 +101,7 @@ def imc_calculator_view(page: ft.Page):
             ft.dropdown.Option('Feminino')
         ],
     )
-    calcular = ft.ElevatedButton(text='Calcular IMC', color=ft.colors.PINK_900, on_click=calcular)
+    calcular = ft.ElevatedButton(text='Calcular IMC',bgcolor=ft.colors.WHITE, color=ft.colors.PINK_900, on_click=calcular)
     img1 = ft.Image(src='images/images (9).jpeg', expand=True, width=100, height=200)
 
     # Exibir o resultado

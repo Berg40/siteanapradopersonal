@@ -503,20 +503,16 @@ def main(page: ft.Page):
                 ft.View(  # A pagina que eu vou exibir
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-
+                    bgcolor=ft.colors.GREY_800,
                     route='/Agachamentos',
                     appbar=ft.AppBar(
-                        title=ft.Text('AGACHAMENTOS'),
-
-                        center_title=True,
-
+                        bgcolor=ft.colors.TRANSPARENT,
+                        #title=ft.Text('AGACHAMENTOS'),
+                        #center_title=True,
                     ),
                     padding=ft.padding.only(top=20, left=10, right=10, bottom=30),
-
                     controls=[
-
                         ft.Row(
-
                             vertical_alignment=ft.CrossAxisAlignment.CENTER,
                             alignment=ft.MainAxisAlignment.CENTER,
                             expand=True,
@@ -526,8 +522,9 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Agachamento Livre',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
 
 
                                 ),
@@ -538,15 +535,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Fique em pé, com os pés afastados na altura dos ombros. (A) Abaixe seu corpo o máximo que você conseguir ao mesmo tempo em que empurra seus quadris para trás e flexiona seus joelhos. Aguarde e depois lentamente volte à posição inicial. (B)',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
 
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
                                 ft.Text(
                                     value='Agachamento com Salto',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
 
                                 ),
                                 ft.Image(
@@ -557,15 +556,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Coloque os seus dedos atrás de sua cabeça e puxe os cotovelos para trás, de forma que eles fiquem alinhados com o seu corpo. (A) Abaixe seus joelhos em preparação para saltar. (B) Pule com explosão o máximo que conseguir. Depois que aterrissar, faça um agachamento imediatamente e pule novamente. (C)',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento Pistola',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
                                 ),
                                 ft.Image(
                                     src='https://i0.statig.com.br/bancodeimagens/22/pi/5n/22pi5nwlo5vt9pu8jvubd0v5c.jpg'
@@ -573,15 +574,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Fique em pé com os braços estendidos na sua frente, na altura dos seus ombros e paralelos ao chão. Eleve sua perna direita e segure. (A) Empurre seus quadris para trás e abaixe o seu corpo o máximo que conseguir. Aguarde e depois empurre seu corpo de volta à posição inicial. (B)',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento com barra',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
                                 ),
                                 ft.Image(
                                     src='https://i0.statig.com.br/bancodeimagens/45/02/4j/45024juur12svqsvgqdqyd976.jpg'
@@ -589,15 +592,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Segure a barra sobre os seus ombros, atrás da sua cabeça. (A) Faça um agachamento com os seus pés mais afastados do que a largura dos seus ombros.',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento na ponta dos pés',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
                                 ),
                                 ft.Image(
                                     src='https://i0.statig.com.br/bancodeimagens/0l/w1/ii/0lw1iiwrsrata095ko96ed2sz.jpg',
@@ -606,14 +611,16 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Segure a barra sobre os seus ombros, atrás da sua cabeça. Antes de agachar, levante seus calcanhares o máximo que você conseguir (A) e segure-os durante todo o movimento. (B)',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento com peso',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True,
                                     weight=ft.FontWeight.BOLD,
                                 ),
                                 ft.Image(
@@ -623,14 +630,16 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Segure um prato de peso na frente de seu peito, com ambas as mãos e braços eretos. (A) Faça um agachamento enquanto fica nessa posição. (B)',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento com haltere',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True,
                                     weight=ft.FontWeight.BOLD,
                                 ),
                                 ft.Image(
@@ -639,15 +648,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Segure um par de halteres em cada mão, ao lado do seu corpo e com as palmas viradas uma para outra. Dê um passo à frente e faça um afundo, com o seu pé esquerdo na frente do direito. (A) Lentamente abaixe o seu corpo o máximo que conseguir. Fique nessa posição por alguns segundos e depois volte à posição inicial o mais rápido que conseguir. (B) Troque as pernas e repita.',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='Agachamento da taça',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
                                 ),
                                 ft.Image(
                                     src='https://i0.statig.com.br/bancodeimagens/a9/5a/w4/a95aw47l0ufbqn9eet1a67xhr.jpg'
@@ -655,15 +666,17 @@ def main(page: ft.Page):
                                 ft.Text(
                                     value='Segure um haltere na vertical, próximo ao seu peito, com ambas as mãos apertando a cabeça do haltere (imagine que ele é uma taça pesada). (A) Acione seu abdômen e abaixe o seu corpo o máximo que conseguir, empurrando seus quadris para trás e flexionando seus joelhos para fazer o agachamento . (B) Segure nessa posição por alguns segundos e depois volte à posição inicial.',
                                     size=15,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
+                                    italic=True
                                 ),
                                 ft.Divider(color=ft.colors.BLACK),
 
                                 ft.Text(
                                     value='FIM',
                                     size=20,
-                                    color=ft.colors.BLACK,
+                                    color=ft.colors.WHITE,
                                     weight=ft.FontWeight.BOLD,
+                                    italic=True
                                 )
 
 
