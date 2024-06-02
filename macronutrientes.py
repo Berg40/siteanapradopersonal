@@ -161,7 +161,10 @@ def macronutrient_calculator_view(page: ft.Page):
     # Container para os resultados
     resultado_container = ft.Container(
         height=300,
-        image_src='images/bola.jpg',
+        image_src='images/bola1.jpg',
+
+
+
         image_fit=ft.ImageFit.COVER,
         image_opacity=0.4,
         content=resultado,

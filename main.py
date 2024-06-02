@@ -41,9 +41,10 @@ def main(page: ft.Page):
                 padding=ft.padding.symmetric(horizontal=0, vertical=0),
                 bgcolor=ft.colors.GREY_800,
                 appbar=ft.AppBar(     #Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
-                    title=ft.Text(''),
+                    #title=ft.Text(''),
+
                     bgcolor=ft.colors.TRANSPARENT,
-                    center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
+                    #center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
                 ),
                 controls=[
                     ft.Container(
@@ -115,7 +116,7 @@ def main(page: ft.Page):
                                     width=300,
 
                                     border_radius=ft.border_radius.horizontal(right=190),
-                                    image_src='images/bola.jpg',
+                                    image_src='images/bola1.jpg',
                                     image_fit=ft.ImageFit.COVER,
                                 )
                             ]
@@ -208,7 +209,7 @@ def main(page: ft.Page):
                     ft.Container(
                         height=500,
                         width=1300,
-                        image_src='images/cordapretobranco.jpg',
+                        image_src='images/cordapreto.jpg',
                         image_fit=ft.ImageFit.COVER,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.center_left,
@@ -216,14 +217,17 @@ def main(page: ft.Page):
                             colors=[ft.colors.YELLOW_200, ft.colors.PURPLE_600],
                         ),
                         content=ft.Row(
+                            spacing=850,
+                            col=10,
                             alignment=ft.MainAxisAlignment.END,
                             wrap=True,
                             controls=[
                                 ft.Container(
+                                    col=8,
                                     alignment=ft.alignment.center,
                                     margin=ft.Margin(top=100, left=0, right=0, bottom=20),
                                     height=70,
-                                    width=150,
+                                    width=175,
                                     border_radius=ft.border_radius.horizontal(left=80),
                                     bgcolor=ft.colors.with_opacity(0.4, ft.colors.BLACK54),
                                     content=ft.Text(
@@ -235,6 +239,7 @@ def main(page: ft.Page):
                                     )
                                 ),
                                 ft.Container(
+                                    col=8,
                                     alignment=ft.alignment.center,
                                     margin=ft.Margin(top=20, left=0, right=0, bottom=20),
                                     height=70,
@@ -250,6 +255,8 @@ def main(page: ft.Page):
                                     )
                                 ),
                                 ft.Container(
+
+                                    col=8,
                                     alignment=ft.alignment.center,
                                     margin=ft.Margin(top=20, left=0, right=0, bottom=20),
                                     height=80,
@@ -407,6 +414,7 @@ def main(page: ft.Page):
                 ],
                 scroll=ft.ScrollMode.AUTO,  #Sempre que essa view for reindenizada ela ja vai ativar o scroll (rolagem da pagina )
                 drawer=ft.NavigationDrawer(  #Ele adiciona um icone de menu no meu appbar
+
                     controls=[
                         ft.NavigationDrawerDestination(   #É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
 

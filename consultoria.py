@@ -1,15 +1,72 @@
 import flet as ft
 
-
 def consultoria_view(page: ft.Page):
+    # Função para abrir o BottomSheet
+    def show_bs(e):
+        bs.open = True
+        page.update()
 
+    # Função para fechar o BottomSheet
+    def close_bs(e):
+        bs.open = False
+        page.update()
 
+    # Definição do BottomSheet
+    bs = ft.BottomSheet(
+        content=ft.Container(
+            bgcolor=ft.colors.CYAN_700,
+            content=ft.Column(
+                expand=True,
+                scroll=ft.ScrollMode.AUTO,
+                controls=[
+                    ft.Text(value='Título', style=ft.TextThemeStyle.HEADLINE_LARGE),
+                    ft.Text(value='''Como Posso Ajudar?
+Eu sou Ana Paula, personal trainer especializada em ajudar mulheres a superar a diástase abdominal através de uma consultoria personalizada. Com a minha abordagem holística e baseada em evidências, ofereço um plano de treino específico que fortalece os músculos do core, reduz a separação abdominal e melhora a sua qualidade de vida. Aqui está como posso te ajudar:
+
+Avaliação Individualizada:
+
+Realizo uma avaliação completa para medir a extensão da diástase e identificar outras possíveis áreas de fraqueza muscular.
+Compreendo suas necessidades, objetivos e qualquer limitação específica para adaptar o plano de treino de forma segura e eficaz.
+Plano de Treino Personalizado:
+
+Desenvolvo um programa de exercícios específicos para fortalecer o core e reduzir a diástase, focando em movimentos seguros e controlados que não agravem a condição.
+Os treinos incluem exercícios de respiração diafragmática, fortalecimento profundo do core e movimentos funcionais para melhorar a estabilidade e a força.
+Acompanhamento Contínuo:
+
+Ofereço suporte contínuo e ajustes no plano de treino conforme necessário, baseado no seu progresso e feedback.
+Disponho de sessões regulares de acompanhamento para monitorar a redução da diástase e ajustar os exercícios para garantir resultados contínuos.
+Educação e Suporte:
+
+Forneço educação sobre a diástase, incluindo dicas para evitar exercícios e atividades que possam piorar a condição.
+Compartilho orientações sobre postura, técnicas de respiração e hábitos diários que auxiliam na recuperação.
+Benefícios da Minha Consultoria Personalizada:
+Segurança e Efetividade: Garantia de um programa de exercícios seguro e eficaz, baseado em suas necessidades individuais.
+Resultados Visíveis: Redução da separação abdominal e fortalecimento significativo do core.
+Melhora na Qualidade de Vida: Redução de dores nas costas, melhor postura e aumento da estabilidade e força.
+Suporte Profissional: Acompanhamento contínuo e ajuste do plano de treino para garantir que você esteja no caminho certo para alcançar seus objetivos.
+Vamos Juntas Conquistar Seu Melhor Corpo
+Se você está pronta para superar a diástase abdominal e fortalecer seu core de forma segura e eficaz, estou aqui para te ajudar. Com a minha consultoria personalizada, vamos trabalhar juntas para alcançar uma recuperação completa e uma melhor qualidade de vida.
+
+Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o primeiro passo rumo à sua transformação!'''),
+                    ft.FilledButton(text='Fechar', on_click=close_bs)
+                ]
+            ),
+            padding=20
+        ),
+        dismissible=False,  # Não fecha ao clicar fora dele
+        enable_drag=True,  # Permite arrastar para cima/baixo
+        is_scroll_controlled=True,  # Habilita scroll
+        maintain_bottom_view_insets_padding=True,  # Adiciona espaçamento
+        #show_drag_handle=True  # Mostra a barra para puxar
+    )
+
+    # Adiciona o BottomSheet à página
+    page.overlay.append(bs)
 
     consul = ft.Container(
         expand=True,
         bgcolor=ft.colors.BLACK54,
         margin=0,
-
         content=ft.Column(
             spacing=0,
             scroll=ft.ScrollMode.ADAPTIVE,
@@ -26,7 +83,6 @@ def consultoria_view(page: ft.Page):
                             ft.colors.GREY_500,
                             ft.colors.GREY_900,
                         ]
-
                     ),
                     content=ft.Column(
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -39,7 +95,6 @@ def consultoria_view(page: ft.Page):
                             ),
                             ft.Text(
                                 value='CONSULTORIA',
-
                                 size=30,
                                 weight=ft.FontWeight.BOLD,
                                 color=ft.colors.WHITE,
@@ -52,17 +107,13 @@ def consultoria_view(page: ft.Page):
                                 color=ft.colors.WHITE,
                                 italic=True,
                             ),
-
                         ]
                     )
-
                 ),
-
                 ft.Container(
                     image_src='images/consultoria2.jpg',
                     image_fit=ft.ImageFit.CONTAIN,
                     image_opacity=0.4,
-
                     height=300,
                     width=500,
                     padding=ft.padding.symmetric(vertical=30),
@@ -80,7 +131,6 @@ def consultoria_view(page: ft.Page):
                             ft.Container(
                                 width=250,
                                 padding=ft.padding.only(left=0, right=0, top=3, bottom=0),
-
                                 content=ft.Text(
                                     value='TREINOS ',
                                     size=20,
@@ -88,19 +138,16 @@ def consultoria_view(page: ft.Page):
                                     color='WHITE',
                                     italic=True,
                                     text_align=ft.TextAlign.JUSTIFY
-                                    )
+                                )
                             ),
                             ft.Container(
-
                                 width=290,
                                 height=25,
                                 margin=0,
                                 padding=ft.padding.only(left=18, right=0, top=0, bottom=0),
-
                                 content=ft.Text(
                                     value='INDIVIDUALIZADOS PARA ',
                                     size=20,
-
                                     weight=ft.FontWeight.BOLD,
                                     color='WHITE',
                                     italic=True,
@@ -110,7 +157,6 @@ def consultoria_view(page: ft.Page):
                             ft.Container(
                                 width=250,
                                 margin=0,
-
                                 content=ft.Text(
                                     value='O SEU OBJETIVO',
                                     size=20,
@@ -120,13 +166,11 @@ def consultoria_view(page: ft.Page):
                                     text_align=ft.TextAlign.JUSTIFY
                                 )
                             ),
-
                         ]
                     )
                 ),
-
                 ft.Container(
-                    height=1600,
+                    height=2100,
                     width=1300,
                     gradient=ft.LinearGradient(
                         begin=ft.alignment.top_center,
@@ -148,9 +192,9 @@ CONSULTORIA FITNESS''',
                                 italic=True,
                             ),
                             ft.Text(
-                                value='''Quando vc contrata a Consultoria Fitness
+                                value='''Quando você contrata a Consultoria Fitness
 Online comigo, marcamos uma reunião via
-video ou pessoalmente para nos conhecermos   
+vídeo ou pessoalmente para nos conhecermos   
 e eu entender qual o seu objetivo e como podemos
 trabalhar juntas para chegar ao seu objetivo.
 Esses são os objetivos que muitas pessoas 
@@ -158,11 +202,8 @@ me procuram.''',
                                 color=ft.colors.WHITE70,
                             ),
                             ft.Divider(color='TRANSPARENT'),
-
                             ft.Container(
-
                                 content=ft.Column(
-
                                     controls=[
                                         ft.Row(
                                             controls=[
@@ -171,7 +212,6 @@ me procuram.''',
                                                     size=20
                                                 ),
                                                 ft.Text(value='Emagrecimento', color='WHITE70'),
-
                                             ]
                                         ),
                                         ft.Row(
@@ -229,14 +269,15 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                             padding=ft.padding.symmetric(vertical=20, horizontal=20),
                                             width=1300,
                                             height=410,
+                                            margin=0,
                                             gradient=ft.LinearGradient(
                                                 begin=ft.alignment.top_left,
                                                 end=ft.alignment.bottom_right,
                                                 colors=[ft.colors.BLUE_ACCENT_700, ft.colors.DEEP_PURPLE_700]
-
                                             ),
                                             content=ft.Column(
                                                 expand=True,
+
                                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                                 controls=[
                                                     ft.Text(
@@ -256,7 +297,6 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                 size=20
                                                             ),
                                                             ft.Text(value='Entrevista Inicial Online', color='WHITE70'),
-
                                                         ]
                                                     ),
                                                     ft.Row(
@@ -286,8 +326,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                 name=ft.icons.CHECK_CIRCLE_ROUNDED,
                                                                 size=20
                                                             ),
-                                                            ft.Text(value='Analise De Movimento',
-                                                                    color='WHITE70'),
+                                                            ft.Text(value='Análise De Movimento', color='WHITE70'),
                                                         ]
                                                     ),
                                                     ft.Row(
@@ -297,7 +336,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                 name=ft.icons.CHECK_CIRCLE_ROUNDED,
                                                                 size=20
                                                             ),
-                                                            ft.Text(value='Vídeos Dos Evercícios', color='WHITE70'),
+                                                            ft.Text(value='Vídeos Dos Exercícios', color='WHITE70'),
                                                         ]
                                                     ),
                                                     ft.Row(
@@ -312,16 +351,112 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                     ),
                                                     ft.Divider(color='TRANSPARENT'),
                                                     ft.ElevatedButton(
-                                                        text='SABER MAIS'
+                                                        text='SABER MAIS',
+                                                        on_click=show_bs
                                                     ),
                                                 ]
                                             )
                                         ),
                                         ft.Container(
+                                            height=500,
+                                            width=1300,
+                                            margin=0,
+                                            image_src='images/diastase.jpeg',
+                                            image_fit=ft.ImageFit.COVER,
+                                            content=ft.Column(
+                                                height=400,
+                                                controls=[
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=20, bottom=0),
+                                                        content=ft.Text(
+                                                            value='Tratamento de Diástase',
+                                                            weight=ft.FontWeight.BOLD,
+                                                            color=ft.colors.WHITE,
+                                                            size=20,
+                                                            italic=True,
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Text(
+                                                            color='WHITE70',
+                                                            value='''A diástase abdominal é a separação 
+dos músculos retos abdominais, 
+geralmente causado por gravidez, 
+parto ou perda de peso significativa. ''',
+
+                                                            size=15
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Text(
+                                                            value='''Sua jornada para uma barriga 
+forte e saudável começa aqui!''',                           color=ft.colors.WHITE,
+                                                            weight=ft.FontWeight.BOLD,
+                                                            italic=True,
+                                                            size=15
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Text(
+                                                            color='WHITE54',
+                                                            value='''Com meu programa personalizado 
+de treinamento vc pode: ''',
+                                                            italic=True,
+                                                            size=14
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Row(
+                                                            controls=[
+                                                                ft.Icon(name=ft.icons.CIRCLE, size=10),
+                                                                ft.Text(value='''Reduzir a diástase e fortalecer 
+os músculos abdominais ''', color=ft.colors.WHITE70, size=14, italic=True, )
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Row(
+                                                            controls=[
+                                                                ft.Icon(name=ft.icons.CIRCLE, size=10),
+                                                                ft.Text(value='''Melhora a postura e da 
+estabilidade so core''', color=ft.colors.WHITE70, italic=True)
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Row(
+                                                            controls=[
+                                                                ft.Icon(name=ft.icons.CIRCLE, size=10),
+                                                                ft.Text(value='''Aliviar a dor nas costas e 
+outros sintomas''', color=ft.colors.WHITE70, italic=True)
+                                                            ]
+                                                        )
+                                                    ),
+                                                    ft.Container(
+                                                        padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
+                                                        content=ft.Row(
+                                                            controls=[
+                                                                ft.Icon(name=ft.icons.CIRCLE, size=10),
+                                                                ft.Text(value='''Aumenta a confiança e a  
+autoestima''', color=ft.colors.WHITE70, italic=True)
+                                                            ]
+                                                        )
+                                                    ),
+
+                                                ]
+                                            )
+
+                                        ),
+                                        ft.Container(
                                             height=600,
                                             width=1300,
-                                            padding=ft.padding.only(left=0, right=0,
-                                                                    top=0, bottom=30),
+                                            padding=ft.padding.only(left=0, right=0, top=0, bottom=30),
                                             bgcolor=ft.colors.GREY_800,
                                             image_src='images/ana.jpg',
                                             image_opacity=0.3,
@@ -340,16 +475,14 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                             ft.Container(
                                                                 height=80,
                                                                 width=60,
-                                                                padding=ft.padding.only(left=0, right=0, top=0,
-                                                                                        bottom=0),
+                                                                padding=ft.padding.only(left=0, right=0, top=0, bottom=0),
                                                                 image_src='images/logoAna.png',
                                                                 image_fit=ft.ImageFit.COVER,
                                                             ),
                                                             ft.Container(
                                                                 height=80,
                                                                 width=200,
-                                                                padding=ft.padding.only(top=20, left=0, right=0,
-                                                                                        bottom=0),
+                                                                padding=ft.padding.only(top=20, left=0, right=0, bottom=0),
                                                                 content=ft.Column(
                                                                     spacing=0,
                                                                     controls=[
@@ -361,15 +494,13 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                             size=15,
                                                                         ),
                                                                         ft.Text(
-                                                                            value='Personal Trainer | Consutoria Fitness',
+                                                                            value='Personal Trainer | Consultoria Fitness',
                                                                             size=10,
                                                                             color=ft.colors.WHITE54
                                                                         )
-
                                                                     ]
                                                                 )
                                                             ),
-
                                                         ]
                                                     ),
                                                     ft.Text(
@@ -387,9 +518,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                         value='vida. Vem treinar comigo.',
                                                         color=ft.colors.WHITE
                                                     ),
-                                                    ft.Container(
-                                                        height=80,
-                                                    ),
+                                                    ft.Container(height=80),
                                                     ft.Row(
                                                         alignment=ft.MainAxisAlignment.CENTER,
                                                         spacing=0,
@@ -398,7 +527,6 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                             ft.Container(
                                                                 height=25,
                                                                 width=25,
-
                                                                 image_src='images/whats1.png',
                                                                 image_fit=ft.ImageFit.CONTAIN
                                                             ),
@@ -418,7 +546,6 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                 width=25,
                                                                 image_src='images/instagram.png',
                                                                 image_fit=ft.ImageFit.CONTAIN,
-
                                                             ),
                                                             ft.Text(
                                                                 color=ft.colors.WHITE,
@@ -426,20 +553,16 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                                     ft.TextSpan(
                                                                         text='@anapradopersonal',
                                                                         url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
-                                                                        # on_click=
                                                                     )
                                                                 ]
                                                             )
                                                         ]
                                                     ),
-                                                    ft.Container(
-                                                        height=150,
-                                                    ),
+                                                    ft.Container(height=150),
                                                     ft.Text(
                                                         value='Copyright 2024 Ana Prado | Criado',
                                                         color=ft.colors.WHITE54,
                                                         size=10
-
                                                     ),
                                                     ft.Text(
                                                         value='Por: Berg Andrade Digital',
@@ -448,12 +571,9 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                     ),
                                                     ft.Divider()
                                                 ]
-
                                             )
                                         )
-
                                     ]
-
                                 )
                             )
                         ]
@@ -463,9 +583,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
         )
     )
 
-
-
     return consul
 
-
+# Inicializando o aplicativo Flet
 

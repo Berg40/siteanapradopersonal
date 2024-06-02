@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d41666-c583-44e2-9837-ab4ebd29a39b" name="Changes" comment="anaprado">
+      <change afterPath="$PROJECT_DIR$/assets/images/bola1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/cordapreto.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/diastase.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/diastese1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diastese.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imc.py" beforeDir="false" afterPath="$PROJECT_DIR$/imc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bola.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/cordapretobranco.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/consultoria.py" beforeDir="false" afterPath="$PROJECT_DIR$/consultoria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macronutrientes.py" beforeDir="false" afterPath="$PROJECT_DIR$/macronutrientes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,18 +41,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/NovosProjetos/siteanapradopersonal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/AulaFlet&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\images" />
       <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\icons" />
       <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets" />
-      <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\images" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,5 +109,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="anaprado" />
     <option name="LAST_COMMIT_MESSAGE" value="anaprado" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
