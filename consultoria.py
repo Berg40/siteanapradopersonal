@@ -2,25 +2,29 @@ import flet as ft
 
 def consultoria_view(page: ft.Page):
     # Função para abrir o BottomSheet
-    def show_bs(e):
-        bs.open = True
+    def show_bs1(e):
+        bs1.open = True
         page.update()
 
     # Função para fechar o BottomSheet
-    def close_bs(e):
-        bs.open = False
+    def close_bs1(e):
+        bs1.open = False
         page.update()
 
     # Definição do BottomSheet
-    bs = ft.BottomSheet(
+    bs1 = ft.BottomSheet(
         content=ft.Container(
-            bgcolor=ft.colors.CYAN_700,
+
+            image_src='images/anadiastase.jpg',
+            image_fit=ft.ImageFit.COVER,
+            image_opacity=0.5,
             content=ft.Column(
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 expand=True,
                 scroll=ft.ScrollMode.AUTO,
                 controls=[
-                    ft.Text(value='Título', style=ft.TextThemeStyle.HEADLINE_LARGE),
-                    ft.Text(value='''Como Posso Ajudar?
+                    ft.Text(value='Como Posso Ajudar?', style=ft.TextThemeStyle.HEADLINE_LARGE, text_align=ft.TextAlign.CENTER, color='WHITE'),
+                    ft.Text(value='''
 Eu sou Ana Paula, personal trainer especializada em ajudar mulheres a superar a diástase abdominal através de uma consultoria personalizada. Com a minha abordagem holística e baseada em evidências, ofereço um plano de treino específico que fortalece os músculos do core, reduz a separação abdominal e melhora a sua qualidade de vida. Aqui está como posso te ajudar:
 
 Avaliação Individualizada:
@@ -35,20 +39,13 @@ Acompanhamento Contínuo:
 
 Ofereço suporte contínuo e ajustes no plano de treino conforme necessário, baseado no seu progresso e feedback.
 Disponho de sessões regulares de acompanhamento para monitorar a redução da diástase e ajustar os exercícios para garantir resultados contínuos.
-Educação e Suporte:
 
-Forneço educação sobre a diástase, incluindo dicas para evitar exercícios e atividades que possam piorar a condição.
-Compartilho orientações sobre postura, técnicas de respiração e hábitos diários que auxiliam na recuperação.
-Benefícios da Minha Consultoria Personalizada:
-Segurança e Efetividade: Garantia de um programa de exercícios seguro e eficaz, baseado em suas necessidades individuais.
-Resultados Visíveis: Redução da separação abdominal e fortalecimento significativo do core.
-Melhora na Qualidade de Vida: Redução de dores nas costas, melhor postura e aumento da estabilidade e força.
-Suporte Profissional: Acompanhamento contínuo e ajuste do plano de treino para garantir que você esteja no caminho certo para alcançar seus objetivos.
 Vamos Juntas Conquistar Seu Melhor Corpo
 Se você está pronta para superar a diástase abdominal e fortalecer seu core de forma segura e eficaz, estou aqui para te ajudar. Com a minha consultoria personalizada, vamos trabalhar juntas para alcançar uma recuperação completa e uma melhor qualidade de vida.
 
-Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o primeiro passo rumo à sua transformação!'''),
-                    ft.FilledButton(text='Fechar', on_click=close_bs)
+Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o primeiro passo rumo à sua transformação!''',
+                            color='BLACK', weight=ft.FontWeight.BOLD),
+                    ft.FilledButton(text='Fechar', on_click=close_bs1)
                 ]
             ),
             padding=20
@@ -57,11 +54,51 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
         enable_drag=True,  # Permite arrastar para cima/baixo
         is_scroll_controlled=True,  # Habilita scroll
         maintain_bottom_view_insets_padding=True,  # Adiciona espaçamento
-        #show_drag_handle=True  # Mostra a barra para puxar
+        show_drag_handle=True  # Mostra a barra para puxar
+    )
+
+    page.overlay.append(bs1)
+
+
+    def show_bs2(e):
+        bs2.open = True
+        page.update()
+
+    # Função para fechar o BottomSheet
+    def close_bs2(e):
+        bs2.open = False
+        page.update()
+
+
+    bs2 = ft.BottomSheet(
+        content=ft.Container(
+            height=320,
+            width=330,
+            content=ft.Column(
+                expand=True,
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+
+                controls=[
+                    ft.Image(
+                        src='https://www.bodyhealthbrasil.com/wp-content/webp-express/webp-images/uploads/2023/02/formacao-da-celulite.jpg.webp',
+                        fit=ft.ImageFit.COVER
+                    ),
+                    ft.FilledButton(text='Fechar', on_click=close_bs2)
+                ]
+            ),
+
+        ),
+        dismissible=False,  # Não fecha ao clicar fora dele
+        enable_drag=True,  # Permite arrastar para cima/baixo
+        is_scroll_controlled=True,  # Habilita scroll
+        maintain_bottom_view_insets_padding=True,  # Adiciona espaçamento
+        show_drag_handle=True  # Mostra a barra para puxar
     )
 
     # Adiciona o BottomSheet à página
-    page.overlay.append(bs)
+    page.overlay.append(bs2)
+
+
 
     consul = ft.Container(
         expand=True,
@@ -80,7 +117,7 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
                         begin=ft.alignment.top_center,
                         end=ft.alignment.bottom_center,
                         colors=[
-                            ft.colors.GREY_500,
+                            ft.colors.LIGHT_BLUE_700,
                             ft.colors.GREY_900,
                         ]
                     ),
@@ -170,18 +207,20 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
                     )
                 ),
                 ft.Container(
-                    height=2100,
+                    height=2825,
                     width=1300,
+                    margin=0,
                     gradient=ft.LinearGradient(
                         begin=ft.alignment.top_center,
                         end=ft.alignment.bottom_center,
                         colors=[
-                            ft.colors.BLUE_GREY_300,
-                            ft.colors.BLUE_GREY_800,
+                            ft.colors.GREY_700,
+                            ft.colors.GREY_900,
                         ]
                     ),
                     padding=ft.padding.symmetric(vertical=40, horizontal=20),
                     content=ft.Column(
+                        spacing=0,
                         controls=[
                             ft.Text(
                                 value='''COMO FUNCIONA A
@@ -203,6 +242,7 @@ me procuram.''',
                             ),
                             ft.Divider(color='TRANSPARENT'),
                             ft.Container(
+                                margin=0,
                                 content=ft.Column(
                                     controls=[
                                         ft.Row(
@@ -273,11 +313,12 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                             gradient=ft.LinearGradient(
                                                 begin=ft.alignment.top_left,
                                                 end=ft.alignment.bottom_right,
-                                                colors=[ft.colors.BLUE_ACCENT_700, ft.colors.DEEP_PURPLE_700]
+                                                colors=[ft.colors.LIGHT_BLUE_600, ft.colors.GREY_900,]
+
                                             ),
                                             content=ft.Column(
                                                 expand=True,
-
+                                                spacing=10,
                                                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                                                 controls=[
                                                     ft.Text(
@@ -290,6 +331,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                     ),
                                                     ft.Divider(color='TRANSPARENT'),
                                                     ft.Row(
+                                                        run_spacing=20,
                                                         controls=[
                                                             ft.Icon(
                                                                 color='WHITE',
@@ -300,6 +342,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                         ]
                                                     ),
                                                     ft.Row(
+                                                        run_spacing=20,
                                                         controls=[
                                                             ft.Icon(
                                                                 color='WHITE',
@@ -352,7 +395,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                     ft.Divider(color='TRANSPARENT'),
                                                     ft.ElevatedButton(
                                                         text='SABER MAIS',
-                                                        on_click=show_bs
+                                                        on_click=show_bs1
                                                     ),
                                                 ]
                                             )
@@ -371,15 +414,16 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                         content=ft.Text(
                                                             value='Tratamento de Diástase',
                                                             weight=ft.FontWeight.BOLD,
-                                                            color=ft.colors.WHITE,
+                                                            color=ft.colors.BLACK,
                                                             size=20,
                                                             italic=True,
                                                         )
                                                     ),
                                                     ft.Container(
+
                                                         padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
                                                         content=ft.Text(
-                                                            color='WHITE70',
+                                                            color='BLACK_54',
                                                             value='''A diástase abdominal é a separação 
 dos músculos retos abdominais, 
 geralmente causado por gravidez, 
@@ -392,7 +436,7 @@ parto ou perda de peso significativa. ''',
                                                         padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
                                                         content=ft.Text(
                                                             value='''Sua jornada para uma barriga 
-forte e saudável começa aqui!''',                           color=ft.colors.WHITE,
+forte e saudável começa aqui!''',                           color=ft.colors.BLACK,
                                                             weight=ft.FontWeight.BOLD,
                                                             italic=True,
                                                             size=15
@@ -401,7 +445,7 @@ forte e saudável começa aqui!''',                           color=ft.colors.WH
                                                     ft.Container(
                                                         padding=ft.padding.only(left=10, right=0, top=0, bottom=0),
                                                         content=ft.Text(
-                                                            color='WHITE54',
+                                                            color='BLACK_54',
                                                             value='''Com meu programa personalizado 
 de treinamento vc pode: ''',
                                                             italic=True,
@@ -414,7 +458,7 @@ de treinamento vc pode: ''',
                                                             controls=[
                                                                 ft.Icon(name=ft.icons.CIRCLE, size=10),
                                                                 ft.Text(value='''Reduzir a diástase e fortalecer 
-os músculos abdominais ''', color=ft.colors.WHITE70, size=14, italic=True, )
+os músculos abdominais ''', color=ft.colors.BLACK54, size=14, italic=True, )
                                                             ]
                                                         )
                                                     ),
@@ -424,7 +468,7 @@ os músculos abdominais ''', color=ft.colors.WHITE70, size=14, italic=True, )
                                                             controls=[
                                                                 ft.Icon(name=ft.icons.CIRCLE, size=10),
                                                                 ft.Text(value='''Melhora a postura e da 
-estabilidade so core''', color=ft.colors.WHITE70, italic=True)
+estabilidade so core''', color=ft.colors.BLACK54, italic=True)
                                                             ]
                                                         )
                                                     ),
@@ -434,7 +478,7 @@ estabilidade so core''', color=ft.colors.WHITE70, italic=True)
                                                             controls=[
                                                                 ft.Icon(name=ft.icons.CIRCLE, size=10),
                                                                 ft.Text(value='''Aliviar a dor nas costas e 
-outros sintomas''', color=ft.colors.WHITE70, italic=True)
+outros sintomas''', color=ft.colors.BLACK54, italic=True)
                                                             ]
                                                         )
                                                     ),
@@ -444,17 +488,73 @@ outros sintomas''', color=ft.colors.WHITE70, italic=True)
                                                             controls=[
                                                                 ft.Icon(name=ft.icons.CIRCLE, size=10),
                                                                 ft.Text(value='''Aumenta a confiança e a  
-autoestima''', color=ft.colors.WHITE70, italic=True)
+autoestima''', color=ft.colors.BLACK54, italic=True)
                                                             ]
                                                         )
                                                     ),
-
+                                                    ft.ElevatedButton('Saber mais', on_click=show_bs1),
                                                 ]
                                             )
-
                                         ),
                                         ft.Container(
-                                            height=600,
+                                            height=760,
+                                            width=1300,
+                                            margin=0,
+                                            padding=ft.padding.only(left=15, right=15, top=30, bottom=20),
+                                            gradient=ft.LinearGradient(
+                                                begin=ft.alignment.top_center,
+                                                end=ft.alignment.bottom_center,
+                                                colors=[ft.colors.LIGHT_BLUE_500, ft.colors.GREY_700,]
+                                            ),
+                                            content=ft.Column(
+                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                                                controls=[
+                                                    ft.Text(
+                                                        text_align=ft.TextAlign.CENTER,
+                                                        value='Cansada da Celulite e do Lipedema? Chega de Sofrer!',
+                                                        size=25,
+                                                        italic=True,
+                                                        style=ft.TextThemeStyle.TITLE_LARGE,
+                                                        color='BLACK_54',
+                                                        weight=ft.FontWeight.BOLD
+
+                                                    ),
+                                                    ft.Text(
+                                                        value='Eu te ajudo a conquistar a pele lisa e tonificada que você sempre sonhou!',
+                                                        size=18,
+                                                        italic=True,
+                                                        style=ft.TextThemeStyle.TITLE_LARGE,
+                                                        color='BLACK_54'
+                                                    ),
+                                                    ft.Image(
+                                                        src='images/celulite.jpeg',
+                                                    ),
+                                                    ft.Text(
+                                                        size=14,
+                                                        weight=ft.FontWeight.BOLD,
+                                                        color='BLACK_54',
+                                                        value='''>Exercícios específicos: Eliminam a "casca de laranja" e remodelam seu corpo.
+>Orientação Alimentar: Descubra como se alimentar para potencializar os resultados.
+>Acompanhamento Constante: Motivação e suporte para você não desistir.
+>Ambiente Acolhedor: Treinos em local de sua preferência, com total segurança.
+
+Resultados comprovados:
+>Redução da celulite e do lipedema;
+>Pele mais firme e tonificada;
+>Aumento da autoestima e confiança;
+>Mais disposição e energia no dia a dia.
+>Chega de promessas vazias! Invista em sua saúde e bem-estar com um plano personalizado e eficaz.'''
+                                                    ),
+                                                    ft.ElevatedButton(
+                                                        text='Saber Mais',
+
+                                                        on_click=show_bs2
+                                                    )
+                                                ]
+                                            )
+                                        ),
+                                        ft.Container(
+                                            height=530,
                                             width=1300,
                                             padding=ft.padding.only(left=0, right=0, top=0, bottom=30),
                                             bgcolor=ft.colors.GREY_800,
@@ -547,15 +647,11 @@ autoestima''', color=ft.colors.WHITE70, italic=True)
                                                                 image_src='images/instagram.png',
                                                                 image_fit=ft.ImageFit.CONTAIN,
                                                             ),
-                                                            ft.Text(
-                                                                color=ft.colors.WHITE,
-                                                                spans=[
-                                                                    ft.TextSpan(
-                                                                        text='@anapradopersonal',
-                                                                        url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
-                                                                    )
-                                                                ]
-                                                            )
+                                                            ft.TextButton(
+                                                                text='@anapradopersonal',
+
+                                                                url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
+                                                            ),
                                                         ]
                                                     ),
                                                     ft.Container(height=150),
