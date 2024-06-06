@@ -5,20 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04d41666-c583-44e2-9837-ab4ebd29a39b" name="Changes" comment="anaprado">
-      <change afterPath="$PROJECT_DIR$/assets/images/Agach.livre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/anadiastase.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/celulite.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cordalaranja.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/fotopcal1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/limitefoto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/calculos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imc_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tdee_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tmb_calculator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/Screen_Recording_20240606_174119_Workout for Women.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/anapradopersonal-06062024-0002.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/anapradopersonalmudo.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Animation.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Conspiracy Theories.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Cream Cake.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/GraffitiDripes-ShadowDrips.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Honey Crepes.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/LEMONMILK-LightItalic.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Light Stories.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/NorthGlamourDemoRegular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/appbarfoto1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/appbarfoto2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/fotoapbar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/fotohome.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/video1.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/calculadora_ciclo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/senha.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consultoria.py" beforeDir="false" afterPath="$PROJECT_DIR$/consultoria.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/macronutrientes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logodecapa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logodecapa1x1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,23 +47,27 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2hFC6IEfUrOoZvMLERBIWMDEeG4" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/NovosProjetos/siteanapradopersonal"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/NovosProjetos/siteanapradopersonal&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets" />
+      <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\fonts" />
       <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\images" />
       <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets\icons" />
-      <recent name="C:\Users\user\NovosProjetos\siteanapradopersonal\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -111,6 +122,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="anaprado" />
     <option name="LAST_COMMIT_MESSAGE" value="anaprado" />
   </component>
