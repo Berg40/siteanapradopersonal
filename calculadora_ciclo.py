@@ -6,13 +6,11 @@ import os
 # Nome do arquivo JSON para armazenar a senha
 json_file = 'senha.json'
 
-
 # Função para criar o arquivo JSON com uma senha padrão se não existir
 def criar_arquivo_json():
     if not os.path.exists(json_file):
         with open(json_file, 'w') as file:
-            json.dump({"senha": "1234"}, file)  # Senha padrão
-
+            json.dump({"senha": "anaprado"}, file)  # Senha padrão
 
 # Função para verificar a senha
 def verificar_senha(senha):
@@ -20,18 +18,20 @@ def verificar_senha(senha):
         data = json.load(file)
         return data["senha"] == senha
 
-
 def calculadora_view(page: ft.Page):
     criar_arquivo_json()  # Certifique-se de que o arquivo JSON exista
 
+    # Função para autenticar o usuário
     def autenticar(e):
         if verificar_senha(senha_input.value):
-            page.remove(acesso_container)  # Remove o container de acesso
+            if acesso_container in page.controls:
+                page.remove(acesso_container)  # Remove o container de acesso
             mostrar_calculadora()
         else:
             senha_incorreta.value = "Senha incorreta. Tente novamente."
             page.update()
 
+    # Função para mostrar a calculadora
     def mostrar_calculadora():
         def calcular_periodo_fertil(e):
             try:
@@ -85,20 +85,22 @@ def calculadora_view(page: ft.Page):
         resultado_fertil = ft.Text(value="")
         resultado_desempenho = ft.Text(value="")
 
-        page.add(
-            ft.Column(
-                [
-                    data_input,
-                    ciclo_curto_input,
-                    ciclo_longo_input,
-                    calcular_button,
-                    resultado_fertil,
-                    resultado_desempenho,
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-                spacing=20,
-            )
+        # Adiciona componentes da calculadora à página
+        calculadora_container = ft.Column(
+            [
+                data_input,
+                ciclo_curto_input,
+                ciclo_longo_input,
+                calcular_button,
+                resultado_fertil,
+                resultado_desempenho,
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            spacing=20,
         )
+
+        page.add(calculadora_container)
+        page.update()
 
     # Componentes da tela de autenticação
     senha_input = ft.TextField(label="Digite a senha", password=True, width=300)
@@ -117,30 +119,8 @@ def calculadora_view(page: ft.Page):
 
     page.add(acesso_container)
 
+    return acesso_container
 
-def minha_view(page: ft.Page):
-    # Componentes existentes na view
-    titulo = ft.Text("Bem-vindo à Minha Aplicação", size=24, weight=ft.FontWeight.BOLD)
-    descricao = ft.Text("Aqui você encontra várias ferramentas úteis.", size=16)
-    calculadora_button = ft.ElevatedButton(text="Acessar Calculadora de Ciclo Menstrual",
-                                           on_click=lambda e: calculadora_view(page))
-
-    # Adiciona componentes à página
-    page.add(
-        ft.Column(
-            [
-                titulo,
-                descricao,
-                calculadora_button,
-                # Outros componentes
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            spacing=20,
-        )
-    )
-
-    # Executa o aplicativo com a view existente
-
-
-
-
+# Código para executar o aplicativo com a view calculadora_view
+if __name__ == "__main__":
+    ft.app(target=calculadora_view)

@@ -1,6 +1,9 @@
 import flet as ft
+import asyncio
 from consultoria import consultoria_view
 from calculos import calculos_view
+from calculadora_ciclo import calculadora_view
+
 
 
 
@@ -8,14 +11,88 @@ def main(page: ft.Page):
     page.window_always_on_top = True
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
-    page.fonts = {
-        'berg': 'fonts/Animation.otf',
-        'font2': 'fonts/Cream Cake.otf',
-        'font3': 'fonts/Animation.otf',
-        'font5': 'fonts/Light Stories.otf'
-    }
+
+    page.fonts = {'font': 'fonts/Light Stories.otf',}
 
     page.update()
+
+    async def animate(e=None):
+        while True:
+            img.offset.x = 0
+            img.opacity = 1
+            tx.opacity = 1
+            tx1.opacity = 1
+            tx2.opacity = 1
+            page.update()
+            await asyncio.sleep(4)
+
+
+            img.offset.x = 1.5
+            img.opacity = 0
+            tx.opacity = 0
+            tx1.opacity = 0
+            tx2.opacity = 0
+            page.update()
+            await asyncio.sleep(3)
+
+
+
+    img =ft.Container(
+        alignment=ft.alignment.bottom_right,
+        height=90,
+        width=100,
+        image_src='images/fotoprincipal.png',
+        image_fit=ft.ImageFit.COVER,
+        offset=ft.Offset(y=0, x=0),
+        animate_offset=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+        opacity=1,
+        animate_opacity=ft.Animation(duration=4000, curve=ft.AnimationCurve.DECELERATE),
+    )
+
+
+
+    tx = ft.Text(
+        value='Você é',
+        color='WHITE',
+        font_family='font',
+       #weight=ft.FontWeight.BOLD,
+        italic=True,
+        size=60,
+        offset=ft.Offset(y=0, x=0.1),
+
+        opacity=1,
+        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+    )
+    tx1 = ft.Text(
+        value='SEU ÚNICO',
+        color='WHITE',
+        font_family='font',
+        weight=ft.FontWeight.BOLD,
+        italic=True,
+        size=15,
+        offset=ft.Offset(y=0, x=2.3),
+        opacity=1,
+        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+    )
+    tx2 = ft.Text(
+        value='LIMITE!',
+        color='WHITE',
+        font_family='font',
+        weight=ft.FontWeight.BOLD,
+        size=50,
+        italic=True,
+        offset=ft.Offset(y=0, x=1.5),
+        opacity=1,
+        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+    )
+
+
+
+
+
+
+
+
 
     def change_route(e):  # Função para mudar a rota com base no NavigationDrawer
         selected_index = e.control.selected_index
@@ -26,8 +103,14 @@ def main(page: ft.Page):
         elif selected_index == 2:
             page.go('/calculos')
 
+        elif selected_index == 3:
+            page.go('/calculadora_ciclo')
+
 
     def route_change(route):
+
+
+
         page.views.clear()  # Views é uma lista dentro da minha pagina, e eu digo que quero que ela limpe toda vez que eu altere a rota
         page.views.append(
             ft.View(
@@ -39,117 +122,68 @@ def main(page: ft.Page):
                 #bgcolor=ft.colors.GREY_800,
                 appbar=ft.AppBar(  # Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
                     # title=ft.Text(''),
+                    toolbar_height=100,
                     bgcolor=ft.colors.TRANSPARENT,
-                    toolbar_height=110,
                     leading=ft.Container(
+                        height=100,
                         width=1300,
-                        expand=True,
                         gradient=ft.LinearGradient(
-                            begin=ft.alignment.top_left,
-                            end=ft.alignment.center_right,
-                            colors=[ft.colors.GREY_800, ft.colors.GREY_400]
+                            begin=ft.alignment.top_right,
+                            end=ft.alignment.top_left,
+                            colors=[ft.colors.GREY_400, ft.colors.GREY_800],
                         ),
-                        padding=ft.padding.symmetric(horizontal=15, vertical=0),
-                        #bgcolor=ft.colors.AMBER,
-                        content=ft.Column(
-                            wrap=True,
-                            spacing=0,
-                            run_spacing=70,
+                        content=ft.Row(
                             controls=[
-                                ft.Text(value='ANA PRADO', size=30, italic=True, weight=ft.FontWeight.BOLD),
-                                ft.Text(value='Cref: 169964-G/SP', size=12),
                                 ft.Container(
-                                    height=50,
-                                    width=100,
-                                    image_src='images/logoAna.png',
-                                    image_fit=ft.ImageFit.COVER
+                                    height=100,
+                                    width=1300,
+                                    margin=ft.margin.only(left=5, right=0, top=5, bottom=0),
+                                    padding=ft.padding.only(left=5, right=20, bottom=0, top=0),
+                                    content=ft.Column(
+                                        wrap=True,
+                                        spacing=0,
+                                        controls=[
+                                            ft.Text(
+                                                value='ANA PRADO',
+                                                italic=True,
+                                                size=25,
+                                                weight=ft.FontWeight.BOLD
+                                            ),
+                                            ft.Text(
+                                                value='CREF: 169964-G/SP',
+                                                color=ft.colors.BLACK,
+                                                size=10
+
+                                            ),
+                                            img
+                                        ]
+                                    )
                                 ),
-                                ft.Column(
-                                    controls=[
-                                        ft.Container(
-                                            height=125,
-                                            width=100,
-                                            image_src='images/fotoapbar.png',
-                                            image_fit=ft.ImageFit.COVER,
 
-                                        )
-
-                                    ]
-
-                                )
                             ]
                         )
                     ),
-                    leading_width=400
-                    #force_material_transparency=True #Deixa o appbar transparente
+                    leading_width=1300
+                    # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
                 ),
                 controls=[
                     ft.Container(
-                        width=1300,
                         height=600,
-                        bgcolor=ft.colors.WHITE,
-
+                        width=1300,
                         image_src='images/bola1.jpg',
                         image_fit=ft.ImageFit.COVER,
                         content=ft.Column(
-
+                            alignment=ft.MainAxisAlignment.SPACE_AROUND,
                             controls=[
-                                ft.Container(
-                                    padding=50,
-                                    content=ft.Text(
-                                        font_family='font5'
-                                                    '',
-                                        color='WHITE',
-                                        style=ft.TextThemeStyle.HEADLINE_LARGE,
-                                        opacity=0.7,
-                                        weight=ft.FontWeight.BOLD,
-                                        size=50,
-                                        value='Você é '
-                                    )
-                                ),
-                                ft.Container(
-                                    padding=ft.padding.only(left=130, right=0, top=80),
+                                tx,
+                                tx1,
+                                tx2,
 
-                                    content=ft.Text(
-                                        opacity=0.7,
-                                        font_family='font5',
-                                        color='WHITE',
-                                        style=ft.TextThemeStyle.HEADLINE_LARGE,
 
-                                        #weight=ft.FontWeight.BOLD,
-                                        size=30,
-                                        value='Seu ÚNICO '
-                                    )
-                                ),
-                                ft.Container(
-                                    padding=ft.padding.only(left=200, right=0, top=200),
-                                    content=ft.Text(
-                                        font_family='font5',
-                                        color='WHITE',
-                                        style=ft.TextThemeStyle.HEADLINE_LARGE,
-                                        opacity=0.7,
-                                        weight=ft.FontWeight.BOLD,
-                                        size=50,
-                                        value='LIMITE!'
-                                    )
-                                ),
                             ]
                         )
                     ),
-                    ft.Container(
-                        content=ft.Video(
-                            fit=ft.ImageFit.COVER,
-                            expand=True,
-                            playlist=[ft.VideoMedia('assets/anapradopersonalmudo.mp4',)],
-                            fill_color='BLUE_200',
-                            aspect_ratio=9/16,
-                            playlist_mode=ft.PlaylistMode.LOOP,
-                            filter_quality=ft.FilterQuality.HIGH,
-                            autoplay=True,
-                            muted=False,
-                            #on_loaded=lambda e:print('Meu video')
-                        )
-                    ),
+
                     ft.Container(
                         padding=20,
                         height=500,
@@ -163,12 +197,11 @@ def main(page: ft.Page):
                             ]
                         ),
 
-
-
                         content=ft.Column(
                             spacing=0,
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                             controls=[
+
                                 ft.Container(
                                     padding=0,
                                     height=50,
@@ -234,6 +267,40 @@ def main(page: ft.Page):
                                 ),
                             ]
                         )
+                    ),
+                    ft.Container(
+                        bgcolor='BLACK',
+                        content=ft.Row(
+                            spacing=5,
+                            scroll=ft.ScrollMode.AUTO,
+                            controls=[
+                                ft.Container(
+                                    height=500,
+                                    width=400,
+                                    image_src='images/depoimento1.jpg',
+                                    image_fit=ft.ImageFit.COVER
+
+                                ),
+                                ft.Container(
+                                    height=500,
+                                    width=400,
+                                    image_src='images/depoimento2.jpg',
+                                    image_fit=ft.ImageFit.COVER
+                                ),
+                                ft.Container(
+                                    height=500,
+                                    width=400,
+                                    image_src='images/depoimento3.jpg',
+                                    image_fit=ft.ImageFit.COVER
+                                ),
+                                ft.Container(
+                                    height=500,
+                                    width=400,
+                                    image_src='images/depoimento4.jpg',
+                                    image_fit=ft.ImageFit.COVER
+                                ),
+                            ]
+                        ),
                     ),
                     ft.Container(
                         height=700,
@@ -372,6 +439,8 @@ def main(page: ft.Page):
                 scroll=ft.ScrollMode.AUTO,
                 # Sempre que essa view for reindenizada ela ja vai ativar o scroll (rolagem da pagina )
                 drawer=ft.NavigationDrawer(  # Ele adiciona um icone de menu no meu appbar
+
+
                     controls=[
                         ft.NavigationDrawerDestination(
                             # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
@@ -386,15 +455,18 @@ def main(page: ft.Page):
                             label='calculos',
                             icon=ft.icons.PHOTO
                         ),
-
+                        ft.NavigationDrawerDestination(
+                            label='calculos',
+                            icon=ft.icons.PHOTO
+                        ),
                     ],
                     on_change=change_route,
                     # Toda vez que eu clicar no navigationDrawer vai disparar uma função, no caso a função change_route que ira mudar minhas paginas
                 ),
                 end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
-
                     controls=[
                         ft.NavigationDrawerDestination(
+                            # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
                             label='Home',
                             icon=ft.icons.HOME,
                         ),
@@ -405,8 +477,11 @@ def main(page: ft.Page):
                         ft.NavigationDrawerDestination(
                             label='calculos',
                             icon=ft.icons.PHOTO
-                        )
-
+                        ),
+                        ft.NavigationDrawerDestination(
+                            label='calculos',
+                            icon=ft.icons.PHOTO
+                        ),
                     ],
                     on_change=change_route,
                 )
@@ -421,55 +496,56 @@ def main(page: ft.Page):
                     padding=0,
                     spacing=0,
                     route='/consultoria',
-                    appbar=ft.AppBar(  # Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
-                        # title=ft.Text(''),
+                    appbar=ft.AppBar(
+                        toolbar_height=100,
                         bgcolor=ft.colors.TRANSPARENT,
-                        toolbar_height=110,
                         leading=ft.Container(
-                            expand=True,
+                            height=100,
+                            width=1300,
                             gradient=ft.LinearGradient(
-                                begin=ft.alignment.top_left,
-                                end=ft.alignment.center_right,
-                                colors=[ft.colors.GREY_800, ft.colors.GREY_400]
+                                begin=ft.alignment.top_right,
+                                end=ft.alignment.top_left,
+                                colors=[ft.colors.GREY_400, ft.colors.GREY_800],
                             ),
-                            padding=ft.padding.symmetric(horizontal=15, vertical=0),
-                            # bgcolor=ft.colors.AMBER,
-                            content=ft.Column(
-                                wrap=True,
-                                spacing=0,
-                                run_spacing=70,
+                            content=ft.Row(
                                 controls=[
-                                    ft.Text(value='ANA PRADO', size=30, italic=True, weight=ft.FontWeight.BOLD),
-                                    ft.Text(value='Cref: 169964-G/SP', size=12),
                                     ft.Container(
-                                        height=50,
-                                        width=100,
-                                        image_src='images/logoAna.png',
-                                        image_fit=ft.ImageFit.COVER
+                                        height=100,
+                                        width=1300,
+                                        margin=ft.margin.only(left=5, right=0, top=5, bottom=0),
+                                        padding=ft.padding.only(left=5, right=20, bottom=0, top=0),
+                                        content=ft.Column(
+                                            wrap=True,
+                                            spacing=0,
+                                            controls=[
+                                                ft.Text(
+                                                    value='ANA PRADO',
+                                                    italic=True,
+                                                    size=25,
+                                                    weight=ft.FontWeight.BOLD
+                                                ),
+                                                ft.Text(
+                                                    value='CREF: 169964-G/SP',
+                                                    color=ft.colors.BLACK,
+                                                    size=10
+
+                                                ),
+                                                img
+                                            ]
+                                        )
                                     ),
-                                    ft.Column(
-                                        controls=[
-                                            ft.Container(
-                                                height=125,
-                                                width=100,
-                                                image_src='images/fotoapbar.png',
-                                                image_fit=ft.ImageFit.COVER,
-                                            )
 
-                                        ]
-
-                                    )
                                 ]
                             )
                         ),
-                        leading_width=400
-                        # force_material_transparency=True #Deixa o appbar transparente
+                        leading_width=1300
+                        # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
                     ),
                     controls=[
                         consultoria_view(page)
 
                     ],
-                    drawer=ft.NavigationDrawer(  # Ele adiciona um icone de menu no meu appbar
+                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
                         controls=[
                             ft.NavigationDrawerDestination(
                                 # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
@@ -484,27 +560,6 @@ def main(page: ft.Page):
                                 label='calculos',
                                 icon=ft.icons.PHOTO
                             ),
-
-                        ],
-                        on_change=change_route,
-                        # Toda vez que eu clicar no navigationDrawer vai disparar uma função, no caso a função change_route que ira mudar minhas paginas
-                    ),
-                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
-
-                        controls=[
-                            ft.NavigationDrawerDestination(
-                                label='Home',
-                                icon=ft.icons.HOME,
-                            ),
-                            ft.NavigationDrawerDestination(
-                                label='Consultoria Online',
-                                icon=ft.icons.STORE
-                            ),
-                            ft.NavigationDrawerDestination(
-                                label='calculos',
-                                icon=ft.icons.PHOTO
-                            )
-
                         ],
                         on_change=change_route,
                     )
@@ -517,58 +572,58 @@ def main(page: ft.Page):
                     vertical_alignment=ft.MainAxisAlignment.START,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     scroll=ft.ScrollMode.ADAPTIVE,
-                    padding=0,
-                    spacing=0,
                     bgcolor=ft.colors.WHITE,
                     route='/calculos',
-                    appbar=ft.AppBar(  # Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
-                        # title=ft.Text(''),
+                    appbar=ft.AppBar(
+                        toolbar_height=100,
                         bgcolor=ft.colors.TRANSPARENT,
-                        toolbar_height=110,
                         leading=ft.Container(
-                            expand=True,
+                            height=100,
+                            width=1300,
                             gradient=ft.LinearGradient(
-                                begin=ft.alignment.top_left,
-                                end=ft.alignment.center_right,
-                                colors=[ft.colors.GREY_800, ft.colors.GREY_400]
+                                begin=ft.alignment.top_right,
+                                end=ft.alignment.top_left,
+                                colors=[ft.colors.GREY_400, ft.colors.GREY_800],
                             ),
-                            padding=ft.padding.symmetric(horizontal=15, vertical=0),
-                            # bgcolor=ft.colors.AMBER,
-                            content=ft.Column(
-                                wrap=True,
-                                spacing=0,
-                                run_spacing=70,
+                            content=ft.Row(
                                 controls=[
-                                    ft.Text(value='ANA PRADO', size=30, italic=True, weight=ft.FontWeight.BOLD),
-                                    ft.Text(value='Cref: 169964-G/SP', size=12),
                                     ft.Container(
-                                        height=50,
-                                        width=100,
-                                        image_src='images/logoAna.png',
-                                        image_fit=ft.ImageFit.COVER
+                                        height=100,
+                                        width=1300,
+                                        margin=ft.margin.only(left=5, right=0, top=5, bottom=0),
+                                        padding=ft.padding.only(left=5, right=20, bottom=0, top=0),
+                                        content=ft.Column(
+                                            wrap=True,
+                                            spacing=0,
+                                            controls=[
+                                                ft.Text(
+                                                    value='ANA PRADO',
+                                                    italic=True,
+                                                    size=25,
+                                                    weight=ft.FontWeight.BOLD
+                                                ),
+                                                ft.Text(
+                                                    value='CREF: 169964-G/SP',
+                                                    color=ft.colors.BLACK,
+                                                    size=10
+
+                                                ),
+                                                img
+                                            ]
+                                        )
                                     ),
-                                    ft.Column(
-                                        controls=[
-                                            ft.Container(
-                                                height=125,
-                                                width=100,
-                                                image_src='images/fotoapbar.png',
-                                                image_fit=ft.ImageFit.COVER,
-                                            )
 
-                                        ]
-
-                                    )
                                 ]
                             )
                         ),
-                        leading_width=400
-                        # force_material_transparency=True #Deixa o appbar transparente
+                        leading_width=1300
+                        # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
                     ),
+                    padding=ft.padding.only(top=0, left=0, right=0, bottom=0),
                     controls=[
                         ft.Container(
                             margin=0,
-                            padding=0,
+                            padding=ft.padding.symmetric(horizontal=0),
                             gradient=ft.LinearGradient(
                                 begin=ft.alignment.top_left,
                                 end=ft.alignment.center_right,
@@ -581,8 +636,7 @@ def main(page: ft.Page):
                                     ft.Container(
                                         padding=ft.padding.only(left=0, right=0, top=20, bottom=0),
                                         content=ft.Text(
-                                            value='Caculadora Fitnnes', size=30, weight=ft.FontWeight.BOLD,
-                                            italic=True, color=ft.colors.WHITE),
+                                            value='Caculadora Fitnnes', size=30, weight=ft.FontWeight.BOLD, italic=True, color=ft.colors.WHITE),
 
                                     ),
 
@@ -633,7 +687,7 @@ def main(page: ft.Page):
                                         padding=20,
                                         content=ft.Text(
                                             value='''A Taxa Metabólica Basal refere-se à quantidade de energia, medida em calorias, que seu corpo necessita para realizar suas funções básicas em repouso. Isso inclui manter a temperatura corporal, respirar, circulação sanguínea, crescimento celular, entre outros. A TMB varia conforme idade, sexo, peso, altura e composição corporal. Em geral, pessoas com mais massa muscular têm uma TMB mais alta, pois o músculo requer mais energia para manter-se do que a gordura.
-                        ''',
+''',
                                             size=14,
                                             italic=True,
                                             color=ft.colors.WHITE,
@@ -697,16 +751,14 @@ def main(page: ft.Page):
                                                         ft.Container(
                                                             height=80,
                                                             width=60,
-                                                            padding=ft.padding.only(left=0, right=0, top=0,
-                                                                                    bottom=0),
+                                                            padding=ft.padding.only(left=0, right=0, top=0, bottom=0),
                                                             image_src='images/logoAna.png',
                                                             image_fit=ft.ImageFit.COVER,
                                                         ),
                                                         ft.Container(
                                                             height=80,
                                                             width=200,
-                                                            padding=ft.padding.only(top=20, left=0, right=0,
-                                                                                    bottom=0),
+                                                            padding=ft.padding.only(top=20, left=0, right=0, bottom=0),
                                                             content=ft.Column(
                                                                 spacing=0,
                                                                 controls=[
@@ -799,11 +851,9 @@ def main(page: ft.Page):
                                     )
                                 ]
                             )
-                        )
-
-
+                        ),
                     ],
-                    drawer=ft.NavigationDrawer(  # Ele adiciona um icone de menu no meu appbar
+                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
                         controls=[
                             ft.NavigationDrawerDestination(
                                 # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
@@ -818,15 +868,45 @@ def main(page: ft.Page):
                                 label='calculos',
                                 icon=ft.icons.PHOTO
                             ),
-
                         ],
                         on_change=change_route,
-                        # Toda vez que eu clicar no navigationDrawer vai disparar uma função, no caso a função change_route que ira mudar minhas paginas
-                    ),
-                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
+                    )
+                )
+            )
 
+
+        if page.route == '/calculadora_ciclo':  # Essa é a rota dessa pagina
+            page.views.append(
+                ft.View(  # A pagina que eu vou exibir
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    padding=0,
+                    spacing=0,
+                    route='/calculadora_ciclo',
+                    appbar=ft.AppBar(
+                        toolbar_height=100,
+                        bgcolor=ft.colors.TRANSPARENT,
+                        leading=ft.Container(
+                            height=100,
+                            width=1300,
+                            gradient=ft.LinearGradient(
+                                begin=ft.alignment.top_right,
+                                end=ft.alignment.top_left,
+                                colors=[ft.colors.GREY_400, ft.colors.GREY_800],
+                            ),
+
+                        ),
+                        leading_width=1300
+                        # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
+                    ),
+                    controls=[
+                        calculadora_view(page)
+
+                    ],
+                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
                         controls=[
                             ft.NavigationDrawerDestination(
+                                # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
                                 label='Home',
                                 icon=ft.icons.HOME,
                             ),
@@ -837,8 +917,7 @@ def main(page: ft.Page):
                             ft.NavigationDrawerDestination(
                                 label='calculos',
                                 icon=ft.icons.PHOTO
-                            )
-
+                            ),
                         ],
                         on_change=change_route,
                     )
@@ -846,14 +925,19 @@ def main(page: ft.Page):
             )
 
         page.update()
+        page.add(img, tx, tx1, tx2)
+        page.run_task(animate)  # Crio task na page e passo a função assinclona que ela criou
+
+
 
     def view_pop(view):  # Defino essa funçao
         page.views.pop()
-        top_view = page.views[-1]
-             # Eu quero pegar minha ultima pagina que foi acessada e ele sera reindenizado por cima da minha pagina atual
+        top_view = page.views[
+            -1]  # Eu quero pegar minha ultima pagina que foi acessada e ele sera reindenizado por cima da minha pagina atual
         page.go(top_view.route)  # Quero acessar essa ultima pagina
 
     page.on_route_change = route_change
+
     page.on_view_pop = view_pop   #crio essa função
     page.go(page.route)
 

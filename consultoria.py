@@ -1,7 +1,56 @@
 import flet as ft
+import  asyncio
 
 def consultoria_view(page: ft.Page):
     # Função para abrir o BottomSheet
+
+
+    async def animate(e=None):
+        while True:
+
+
+            text.scale.scale = 1.5
+            text1.scale.scale = 1.5
+            page.update()
+            await asyncio.sleep(3)
+
+
+
+            text.scale.scale = 0.7
+            text1.scale.scale = 0.7
+            page.update()
+            await asyncio.sleep(5)
+
+    text = ft.Text(
+        value='CONSULTORIA',
+        size=30,
+        weight=ft.FontWeight.BOLD,
+        color=ft.colors.WHITE,
+        italic=True,
+        scale=ft.Scale(scale=-3),  # Crio uma animação de scala
+        animate_scale=ft.Animation(duration=2000, curve=ft.AnimationCurve.DECELERATE),
+
+    )
+    text1 = ft.Text(
+        value='FITNESS ONLINE',
+        size=25,
+        weight=ft.FontWeight.BOLD,
+        color=ft.colors.WHITE,
+        italic=True,
+        offset=ft.Offset(y=0, x=0),
+        scale=ft.Scale(scale=-3),  #Crio uma animação de scala
+        animate_scale=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE),
+    )
+
+
+
+
+
+
+
+
+
+
     def show_bs1(e):
         bs1.open = True
         page.update()
@@ -14,10 +63,9 @@ def consultoria_view(page: ft.Page):
     # Definição do BottomSheet
     bs1 = ft.BottomSheet(
         content=ft.Container(
-
             image_src='images/anadiastase.jpg',
             image_fit=ft.ImageFit.COVER,
-            image_opacity=0.5,
+            image_opacity=0.2,
             content=ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 expand=True,
@@ -130,33 +178,23 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
                                 size=15,
                                 color=ft.colors.CYAN_ACCENT_200,
                             ),
-                            ft.Text(
-                                value='CONSULTORIA',
-                                size=30,
-                                weight=ft.FontWeight.BOLD,
-                                color=ft.colors.WHITE,
-                                italic=True,
-                            ),
-                            ft.Text(
-                                value='FITNESS ONLINE',
-                                size=30,
-                                weight=ft.FontWeight.BOLD,
-                                color=ft.colors.WHITE,
-                                italic=True,
-                            ),
+
+                            text,
+                            text1
                         ]
                     )
                 ),
                 ft.Container(
                     image_src='images/consultoria2.jpg',
-                    image_fit=ft.ImageFit.CONTAIN,
+                    image_fit=ft.ImageFit.COVER,
                     image_opacity=0.4,
-                    height=300,
+                    height=400,
                     width=500,
                     padding=ft.padding.symmetric(vertical=30),
                     content=ft.Column(
+                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                        spacing=0,
+                        spacing=30,
                         controls=[
                             ft.Text(
                                 value='Treine Onde Quiser E No Seu Tempo',
@@ -179,8 +217,8 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
                             ),
                             ft.Container(
                                 width=290,
-                                height=25,
-                                margin=0,
+                                height=45,
+                                margin=30,
                                 padding=ft.padding.only(left=18, right=0, top=0, bottom=0),
                                 content=ft.Text(
                                     value='INDIVIDUALIZADOS PARA ',
@@ -678,6 +716,9 @@ Resultados comprovados:
             ]
         )
     )
+    page.update()
+    page.add(text, text1)
+    page.run_task(animate)  # Crio task na page e passo a função assinclona que ela criou
 
     return consul
 
