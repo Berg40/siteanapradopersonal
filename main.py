@@ -2,7 +2,7 @@ import flet as ft
 import asyncio
 from consultoria import consultoria_view
 from calculos import calculos_view
-from calculadora_ciclo import calculadora_view
+
 
 
 
@@ -11,8 +11,11 @@ def main(page: ft.Page):
     page.window_always_on_top = True
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.floating_action_button = ft.FloatingActionButton(icon=ft.icons.ADD, bgcolor='GREEN')
 
-    page.fonts = {'font': 'fonts/Light Stories.otf',}
+    page.update()
+    page.fonts = {'font': 'fonts/Light Stories.otf',
+                  'berg': 'fonts/OPTIContactShadow-Agency.otf'}
 
     page.update()
 
@@ -53,44 +56,44 @@ def main(page: ft.Page):
 
     tx = ft.Text(
         value='Você é',
-        color='WHITE',
-        font_family='font',
+        color='AMBER',
+        font_family='berg',
        #weight=ft.FontWeight.BOLD,
         italic=True,
         size=60,
         offset=ft.Offset(y=0, x=0.1),
 
         opacity=1,
-        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+        animate_opacity=ft.Animation(duration=2000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
     )
     tx1 = ft.Text(
         value='SEU ÚNICO',
-        color='WHITE',
+        color='AMBER',
         font_family='font',
-        weight=ft.FontWeight.BOLD,
+        #weight=ft.FontWeight.BOLD,
         italic=True,
         size=15,
         offset=ft.Offset(y=0, x=2.3),
         opacity=1,
-        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+        animate_opacity=ft.Animation(duration=2000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
     )
     tx2 = ft.Text(
         value='LIMITE!',
-        color='WHITE',
-        font_family='font',
-        weight=ft.FontWeight.BOLD,
+        color=ft.colors.AMBER,
+        font_family='berg',
+        #weight=ft.FontWeight.BOLD,
         size=50,
         italic=True,
-        offset=ft.Offset(y=0, x=1.5),
+        offset=ft.Offset(y=0, x=1.1),
         opacity=1,
-        animate_opacity=ft.Animation(duration=3000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
+        animate_opacity=ft.Animation(duration=2000, curve=ft.AnimationCurve.EASE_IN_OUT_QUART)
     )
 
 
 
-
-
-
+    def open_whatsapp(e):
+        whatsapp_url = 'https://api.whatsapp.com/send?phone=5512997071992'
+        page.launch_url(whatsapp_url)
 
 
 
@@ -103,8 +106,7 @@ def main(page: ft.Page):
         elif selected_index == 2:
             page.go('/calculos')
 
-        elif selected_index == 3:
-            page.go('/calculadora_ciclo')
+
 
 
     def route_change(route):
@@ -118,6 +120,15 @@ def main(page: ft.Page):
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 vertical_alignment=ft.MainAxisAlignment.CENTER,
                 spacing=0,
+                floating_action_button=ft.FloatingActionButton(
+                    content=ft.Image(
+                        src='images/whatssfundo.png',
+                        fit=ft.ImageFit.CONTAIN
+                    ),
+                    on_click=open_whatsapp,
+                    shape=ft.CircleBorder('circle'),
+                    scale=0.9
+                ),
                 padding=ft.padding.symmetric(horizontal=0, vertical=0),
                 #bgcolor=ft.colors.GREY_800,
                 appbar=ft.AppBar(  # Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
@@ -303,9 +314,9 @@ def main(page: ft.Page):
                         ),
                     ),
                     ft.Container(
-                        height=700,
+                        height=680,
                         width=1300,
-                        image_src='images/limitefoto.jpg',
+                        image_src='images/Fotogif1.gif',
                         image_fit=ft.ImageFit.CONTAIN,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.center_left,
@@ -313,12 +324,12 @@ def main(page: ft.Page):
                             colors=[ft.colors.GREY_400, ft.colors.GREY_800],
                         ),
 
-
                     ),
                     ft.Container(
-                        height=600,
+                        height=560,
                         width=1300,
-                        padding=ft.padding.only(left=10, right=10, top=100, bottom=30),
+                        margin=0,
+                        padding=ft.padding.only(left=10, right=10, top=40, bottom=30),
                         bgcolor=ft.colors.GREY_800,
                         image_src='images/ana.jpg',
                         image_opacity=0.3,
@@ -455,10 +466,7 @@ def main(page: ft.Page):
                             label='calculos',
                             icon=ft.icons.PHOTO
                         ),
-                        ft.NavigationDrawerDestination(
-                            label='calculos',
-                            icon=ft.icons.PHOTO
-                        ),
+
                     ],
                     on_change=change_route,
                     # Toda vez que eu clicar no navigationDrawer vai disparar uma função, no caso a função change_route que ira mudar minhas paginas
@@ -478,10 +486,7 @@ def main(page: ft.Page):
                             label='calculos',
                             icon=ft.icons.PHOTO
                         ),
-                        ft.NavigationDrawerDestination(
-                            label='calculos',
-                            icon=ft.icons.PHOTO
-                        ),
+
                     ],
                     on_change=change_route,
                 )
@@ -493,6 +498,15 @@ def main(page: ft.Page):
                 ft.View(  # A pagina que eu vou exibir
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    floating_action_button=ft.FloatingActionButton(
+                        content=ft.Image(
+                            src='images/whatssfundo.png',
+                            fit=ft.ImageFit.CONTAIN
+                        ),
+                        on_click=open_whatsapp,
+                        shape=ft.CircleBorder('circle'),
+                        scale=0.9
+                    ),
                     padding=0,
                     spacing=0,
                     route='/consultoria',
@@ -507,6 +521,7 @@ def main(page: ft.Page):
                                 end=ft.alignment.top_left,
                                 colors=[ft.colors.GREY_400, ft.colors.GREY_800],
                             ),
+
                             content=ft.Row(
                                 controls=[
                                     ft.Container(
@@ -571,6 +586,15 @@ def main(page: ft.Page):
                 ft.View(  # A pagina que eu vou exibir
                     vertical_alignment=ft.MainAxisAlignment.START,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    floating_action_button=ft.FloatingActionButton(
+                        content=ft.Image(
+                            src='images/whatssfundo.png',
+                            fit=ft.ImageFit.CONTAIN
+                        ),
+                        on_click=open_whatsapp,
+                        shape=ft.CircleBorder('circle'),
+                        scale=0.9
+                    ),
                     scroll=ft.ScrollMode.ADAPTIVE,
                     bgcolor=ft.colors.WHITE,
                     route='/calculos',
@@ -729,9 +753,9 @@ def main(page: ft.Page):
                                     ),
                                     calculos_view(page),
                                     ft.Container(
-                                        height=570,
+                                        height=550,
                                         width=1300,
-                                        padding=ft.padding.only(left=10, right=10, top=100, bottom=30),
+                                        padding=ft.padding.only(left=10, right=10, top=40, bottom=20),
                                         bgcolor=ft.colors.GREY_800,
                                         image_src='images/ana.jpg',
                                         image_fit=ft.ImageFit.COVER,
@@ -875,57 +899,11 @@ def main(page: ft.Page):
             )
 
 
-        if page.route == '/calculadora_ciclo':  # Essa é a rota dessa pagina
-            page.views.append(
-                ft.View(  # A pagina que eu vou exibir
-                    vertical_alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                    padding=0,
-                    spacing=0,
-                    route='/calculadora_ciclo',
-                    appbar=ft.AppBar(
-                        toolbar_height=100,
-                        bgcolor=ft.colors.TRANSPARENT,
-                        leading=ft.Container(
-                            height=100,
-                            width=1300,
-                            gradient=ft.LinearGradient(
-                                begin=ft.alignment.top_right,
-                                end=ft.alignment.top_left,
-                                colors=[ft.colors.GREY_400, ft.colors.GREY_800],
-                            ),
-
-                        ),
-                        leading_width=1300
-                        # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
-                    ),
-                    controls=[
-                        calculadora_view(page)
-
-                    ],
-                    end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
-                        controls=[
-                            ft.NavigationDrawerDestination(
-                                # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
-                                label='Home',
-                                icon=ft.icons.HOME,
-                            ),
-                            ft.NavigationDrawerDestination(
-                                label='Consultoria Online',
-                                icon=ft.icons.STORE
-                            ),
-                            ft.NavigationDrawerDestination(
-                                label='calculos',
-                                icon=ft.icons.PHOTO
-                            ),
-                        ],
-                        on_change=change_route,
-                    )
-                )
-            )
 
         page.update()
         page.add(img, tx, tx1, tx2)
+
+
         page.run_task(animate)  # Crio task na page e passo a função assinclona que ela criou
 
 

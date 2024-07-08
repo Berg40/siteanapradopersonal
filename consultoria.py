@@ -43,14 +43,6 @@ def consultoria_view(page: ft.Page):
     )
 
 
-
-
-
-
-
-
-
-
     def show_bs1(e):
         bs1.open = True
         page.update()
@@ -152,6 +144,7 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
         expand=True,
         bgcolor=ft.colors.BLACK54,
         margin=0,
+        padding=0,
         content=ft.Column(
             spacing=0,
             scroll=ft.ScrollMode.ADAPTIVE,
@@ -159,6 +152,7 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             controls=[
                 ft.Container(
+                    margin=0,
                     height=500,
                     width=1300,
                     gradient=ft.LinearGradient(
@@ -185,67 +179,16 @@ Entre em contato comigo hoje mesmo para agendar sua avaliação inicial e dar o 
                     )
                 ),
                 ft.Container(
-                    image_src='images/consultoria2.jpg',
+                    image_src='images/Consultoria1.gif',
                     image_fit=ft.ImageFit.COVER,
-                    image_opacity=0.4,
-                    height=400,
-                    width=500,
+                    image_opacity=1,
+                    height=600,
+                    width=1300,
                     padding=ft.padding.symmetric(vertical=30),
-                    content=ft.Column(
-                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                        spacing=30,
-                        controls=[
-                            ft.Text(
-                                value='Treine Onde Quiser E No Seu Tempo',
-                                size=15,
-                                color=ft.colors.CYAN_ACCENT_200,
-                                italic=True
-                            ),
-                            ft.Divider(color='TRANSPARENT'),
-                            ft.Container(
-                                width=250,
-                                padding=ft.padding.only(left=0, right=0, top=3, bottom=0),
-                                content=ft.Text(
-                                    value='TREINOS ',
-                                    size=20,
-                                    weight=ft.FontWeight.BOLD,
-                                    color='WHITE',
-                                    italic=True,
-                                    text_align=ft.TextAlign.JUSTIFY
-                                )
-                            ),
-                            ft.Container(
-                                width=290,
-                                height=45,
-                                margin=30,
-                                padding=ft.padding.only(left=18, right=0, top=0, bottom=0),
-                                content=ft.Text(
-                                    value='INDIVIDUALIZADOS PARA ',
-                                    size=20,
-                                    weight=ft.FontWeight.BOLD,
-                                    color='WHITE',
-                                    italic=True,
-                                    text_align=ft.TextAlign.JUSTIFY
-                                )
-                            ),
-                            ft.Container(
-                                width=250,
-                                margin=0,
-                                content=ft.Text(
-                                    value='O SEU OBJETIVO',
-                                    size=20,
-                                    weight=ft.FontWeight.BOLD,
-                                    color='WHITE',
-                                    italic=True,
-                                    text_align=ft.TextAlign.JUSTIFY
-                                )
-                            ),
-                        ]
-                    )
+
                 ),
                 ft.Container(
-                    height=2825,
+                    height=2965,
                     width=1300,
                     margin=0,
                     gradient=ft.LinearGradient(
@@ -280,6 +223,7 @@ me procuram.''',
                             ),
                             ft.Divider(color='TRANSPARENT'),
                             ft.Container(
+
                                 margin=0,
                                 content=ft.Column(
                                     controls=[
@@ -431,10 +375,7 @@ vídeos dos exercícios, todas as variáveis de treino, pode inserir suas cargas
                                                         ]
                                                     ),
                                                     ft.Divider(color='TRANSPARENT'),
-                                                    ft.ElevatedButton(
-                                                        text='SABER MAIS',
-                                                        on_click=show_bs1
-                                                    ),
+
                                                 ]
                                             )
                                         ),
@@ -535,6 +476,12 @@ autoestima''', color=ft.colors.BLACK54, italic=True)
                                             )
                                         ),
                                         ft.Container(
+                                            height=600,
+                                            width=1300,
+                                            image_src='images/anapradopersona-.gif',
+                                            image_fit=ft.ImageFit.COVER
+                                        ),
+                                        ft.Container(
                                             height=760,
                                             width=1300,
                                             margin=0,
@@ -591,125 +538,129 @@ Resultados comprovados:
                                                 ]
                                             )
                                         ),
-                                        ft.Container(
-                                            height=530,
-                                            width=1300,
-                                            padding=ft.padding.only(left=0, right=0, top=0, bottom=30),
-                                            bgcolor=ft.colors.GREY_800,
-                                            image_src='images/ana.jpg',
-                                            image_opacity=0.3,
-                                            content=ft.Column(
-                                                expand=True,
-                                                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                                                spacing=0,
-                                                run_spacing=0,
-                                                controls=[
-                                                    ft.Row(
-                                                        wrap=True,
-                                                        col=2,
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        spacing=0,
-                                                        controls=[
-                                                            ft.Container(
-                                                                height=80,
-                                                                width=60,
-                                                                padding=ft.padding.only(left=0, right=0, top=0, bottom=0),
-                                                                image_src='images/logoAna.png',
-                                                                image_fit=ft.ImageFit.COVER,
-                                                            ),
-                                                            ft.Container(
-                                                                height=80,
-                                                                width=200,
-                                                                padding=ft.padding.only(top=20, left=0, right=0, bottom=0),
-                                                                content=ft.Column(
-                                                                    spacing=0,
-                                                                    controls=[
-                                                                        ft.Text(
-                                                                            value='ANA PRADO PERSONAL',
-                                                                            weight=ft.FontWeight.BOLD,
-                                                                            color=ft.colors.WHITE,
-                                                                            italic=True,
-                                                                            size=15,
-                                                                        ),
-                                                                        ft.Text(
-                                                                            value='Personal Trainer | Consultoria Fitness',
-                                                                            size=10,
-                                                                            color=ft.colors.WHITE54
-                                                                        )
-                                                                    ]
-                                                                )
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.Text(
-                                                        text_align=ft.TextAlign.CENTER,
-                                                        value='Treinos personalizados e focados no',
-                                                        color=ft.colors.WHITE
-                                                    ),
-                                                    ft.Text(
-                                                        text_align=ft.TextAlign.CENTER,
-                                                        value='seu objetivo de saúde e qualidade de',
-                                                        color=ft.colors.WHITE
-                                                    ),
-                                                    ft.Text(
-                                                        text_align=ft.TextAlign.CENTER,
-                                                        value='vida. Vem treinar comigo.',
-                                                        color=ft.colors.WHITE
-                                                    ),
-                                                    ft.Container(height=80),
-                                                    ft.Row(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        spacing=0,
-                                                        run_spacing=0,
-                                                        controls=[
-                                                            ft.Container(
-                                                                height=25,
-                                                                width=25,
-                                                                image_src='images/whats1.png',
-                                                                image_fit=ft.ImageFit.CONTAIN
-                                                            ),
-                                                            ft.Text(
-                                                                value='(12) 98889-4359',
-                                                                color=ft.colors.WHITE,
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.Row(
-                                                        alignment=ft.MainAxisAlignment.CENTER,
-                                                        spacing=0,
-                                                        run_spacing=5,
-                                                        controls=[
-                                                            ft.Container(
-                                                                height=25,
-                                                                width=25,
-                                                                image_src='images/instagram.png',
-                                                                image_fit=ft.ImageFit.CONTAIN,
-                                                            ),
-                                                            ft.TextButton(
-                                                                text='@anapradopersonal',
 
-                                                                url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
-                                                            ),
-                                                        ]
-                                                    ),
-                                                    ft.Container(height=150),
-                                                    ft.Text(
-                                                        value='Copyright 2024 Ana Prado | Criado',
-                                                        color=ft.colors.WHITE54,
-                                                        size=10
-                                                    ),
-                                                    ft.Text(
-                                                        value='Por: Berg Andrade Digital',
-                                                        color=ft.colors.WHITE54,
-                                                        size=10
-                                                    ),
-                                                    ft.Divider()
-                                                ]
-                                            )
-                                        )
                                     ]
                                 )
                             )
+
+                        ]
+                    )
+                ),
+                ft.Container(
+                    height=510,
+                    width=1300,
+                    margin=0,
+                    padding=ft.padding.only(left=0, right=0, top=20, bottom=20),
+                    bgcolor=ft.colors.GREY_800,
+                    image_src='images/ana.jpg',
+                    image_fit=ft.ImageFit.COVER,
+                    image_opacity=0.3,
+                    content=ft.Column(
+                        #expand=True,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        spacing=0,
+                        run_spacing=0,
+                        controls=[
+                            ft.Row(
+                                wrap=True,
+                                col=2,
+                                alignment=ft.MainAxisAlignment.CENTER,
+                                spacing=0,
+                                controls=[
+                                    ft.Container(
+                                        height=80,
+                                        width=60,
+                                        padding=ft.padding.only(left=0, right=0, top=0, bottom=0),
+                                        image_src='images/logoAna.png',
+                                        image_fit=ft.ImageFit.COVER,
+                                    ),
+                                    ft.Container(
+                                        height=80,
+                                        width=200,
+                                        padding=ft.padding.only(top=20, left=0, right=0, bottom=0),
+                                        content=ft.Column(
+                                            spacing=0,
+                                            controls=[
+                                                ft.Text(
+                                                    value='ANA PRADO PERSONAL',
+                                                    weight=ft.FontWeight.BOLD,
+                                                    color=ft.colors.WHITE,
+                                                    italic=True,
+                                                    size=15,
+                                                ),
+                                                ft.Text(
+                                                    value='Personal Trainer | Consultoria Fitness',
+                                                    size=10,
+                                                    color=ft.colors.WHITE54
+                                                )
+                                            ]
+                                        )
+                                    ),
+                                ]
+                            ),
+                            ft.Text(
+                                text_align=ft.TextAlign.CENTER,
+                                value='Treinos personalizados e focados no',
+                                color=ft.colors.WHITE
+                            ),
+                            ft.Text(
+                                text_align=ft.TextAlign.CENTER,
+                                value='seu objetivo de saúde e qualidade de',
+                                color=ft.colors.WHITE
+                            ),
+                            ft.Text(
+                                text_align=ft.TextAlign.CENTER,
+                                value='vida. Vem treinar comigo.',
+                                color=ft.colors.WHITE
+                            ),
+                            ft.Container(height=80),
+                            ft.Row(
+                                alignment=ft.MainAxisAlignment.CENTER,
+                                spacing=0,
+                                run_spacing=0,
+                                controls=[
+                                    ft.Container(
+                                        height=25,
+                                        width=25,
+                                        image_src='images/whats1.png',
+                                        image_fit=ft.ImageFit.CONTAIN
+                                    ),
+                                    ft.Text(
+                                        value='(12) 98889-4359',
+                                        color=ft.colors.WHITE,
+                                    ),
+                                ]
+                            ),
+                            ft.Row(
+                                alignment=ft.MainAxisAlignment.CENTER,
+                                spacing=0,
+                                run_spacing=5,
+                                controls=[
+                                    ft.Container(
+                                        height=25,
+                                        width=25,
+                                        image_src='images/instagram.png',
+                                        image_fit=ft.ImageFit.CONTAIN,
+                                    ),
+                                    ft.TextButton(
+                                        text='@anapradopersonal',
+
+                                        url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
+                                    ),
+                                ]
+                            ),
+                            ft.Container(height=150),
+                            ft.Text(
+                                value='Copyright 2024 Ana Prado | Criado',
+                                color=ft.colors.WHITE54,
+                                size=10
+                            ),
+                            ft.Text(
+                                value='Por: Berg Andrade Digital',
+                                color=ft.colors.WHITE54,
+                                size=10
+                            ),
+                            ft.Divider()
                         ]
                     )
                 )

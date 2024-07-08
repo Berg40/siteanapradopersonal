@@ -6,7 +6,7 @@ def main(page: ft.Page):
 
 
 
-    ft.Container(
+    diastese = ft.Container(
         height=400,
         width=600,
         image_src='images/diastese1.jpeg',
