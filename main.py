@@ -97,7 +97,7 @@ def main(page: ft.Page):
 
 
     def open_whatsapp(e):
-        whatsapp_url = 'https://api.whatsapp.com/send?phone=5512997071992'
+        whatsapp_url = 'https://api.whatsapp.com/send?phone=5512988894359'
         page.launch_url(whatsapp_url)
 
 
