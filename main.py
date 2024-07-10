@@ -11,6 +11,8 @@ def main(page: ft.Page):
     page.window_always_on_top = True
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.theme_mode = ft.ThemeMode.LIGHT  # Inicialmente tema claro
+    page.update()
     page.floating_action_button = ft.FloatingActionButton(icon=ft.icons.ADD, bgcolor='GREEN')
 
     page.update()
@@ -18,6 +20,10 @@ def main(page: ft.Page):
                   'berg': 'fonts/OPTIContactShadow-Agency.otf'}
 
     page.update()
+
+    def toggle_theme(e):
+        page.theme_mode = ft.ThemeMode.DARK if page.theme_mode == ft.ThemeMode.LIGHT else ft.ThemeMode.LIGHT
+        page.update()
 
     async def animate(e=None):
         while True:
@@ -56,19 +62,18 @@ def main(page: ft.Page):
 
     tx = ft.Text(
         value='Você é',
-        color='AMBER',
+        color=ft.colors.WHITE54,
         font_family='berg',
        #weight=ft.FontWeight.BOLD,
         italic=True,
         size=60,
         offset=ft.Offset(y=0, x=0.1),
-
         opacity=1,
         animate_opacity=ft.Animation(duration=2000, curve=ft.AnimationCurve.BOUNCE_IN_OUT)
     )
     tx1 = ft.Text(
         value='SEU ÚNICO',
-        color='AMBER',
+        color=ft.colors.WHITE,
         font_family='font',
         #weight=ft.FontWeight.BOLD,
         italic=True,
@@ -79,7 +84,7 @@ def main(page: ft.Page):
     )
     tx2 = ft.Text(
         value='LIMITE!',
-        color=ft.colors.AMBER,
+        color=ft.colors.WHITE54,
         font_family='berg',
         #weight=ft.FontWeight.BOLD,
         size=50,
@@ -121,15 +126,18 @@ def main(page: ft.Page):
                 vertical_alignment=ft.MainAxisAlignment.CENTER,
                 spacing=0,
                 floating_action_button=ft.FloatingActionButton(
+                    tooltip='Contato',
                     content=ft.Image(
                         src='images/whatssfundo.png',
                         fit=ft.ImageFit.CONTAIN
                     ),
                     on_click=open_whatsapp,
                     shape=ft.CircleBorder('circle'),
-                    scale=0.9
+                    scale=0.9,
+
                 ),
                 padding=ft.padding.symmetric(horizontal=0, vertical=0),
+
                 #bgcolor=ft.colors.GREY_800,
                 appbar=ft.AppBar(  # Ele ja cria um menu proprio na parte superior (Ideal para app mobile)
                     # title=ft.Text(''),
@@ -166,15 +174,28 @@ def main(page: ft.Page):
                                                 size=10
 
                                             ),
+                                            ft.IconButton(
+                                                tooltip='Claro/Escuro',
+                                                icon=ft.icons.BRIGHTNESS_6,
+                                                on_click=toggle_theme
+
+                                            ),
                                             img
                                         ]
                                     )
                                 ),
 
+
                             ]
                         )
                     ),
-                    leading_width=1300
+                    leading_width=1300,
+                    #actions=[
+                        #ft.IconButton(
+                            #icon=ft.icons.BRIGHTNESS_6,
+                            #on_click=toggle_theme
+                        #)
+                    #]
                     # center_title=True,        #force_material_transparency=True #Deixa o appbar transparente
                 ),
                 controls=[
@@ -281,43 +302,47 @@ def main(page: ft.Page):
                     ),
                     ft.Container(
                         bgcolor='BLACK',
-                        content=ft.Row(
-                            spacing=5,
-                            scroll=ft.ScrollMode.AUTO,
-                            controls=[
-                                ft.Container(
-                                    height=500,
-                                    width=400,
-                                    image_src='images/depoimento1.jpg',
-                                    image_fit=ft.ImageFit.COVER
+                        height=700,
+                        width=1300,
+                        image_src='images/anapradopersona-Gif.gif',
+                        image_fit=ft.ImageFit.COVER,
+                        #content=ft.Row(
+                            #spacing=5,
+                            #scroll=ft.ScrollMode.AUTO,
+                            #controls=[
+                                #ft.Container(
+                                    #height=500,
+                                    #width=400,
+                                    #image_src='images/depoimento1.jpg',
+                                    #image_fit=ft.ImageFit.COVER
 
-                                ),
-                                ft.Container(
-                                    height=500,
-                                    width=400,
-                                    image_src='images/depoimento2.jpg',
-                                    image_fit=ft.ImageFit.COVER
-                                ),
-                                ft.Container(
-                                    height=500,
-                                    width=400,
-                                    image_src='images/depoimento3.jpg',
-                                    image_fit=ft.ImageFit.COVER
-                                ),
-                                ft.Container(
-                                    height=500,
-                                    width=400,
-                                    image_src='images/depoimento4.jpg',
-                                    image_fit=ft.ImageFit.COVER
-                                ),
-                            ]
-                        ),
+                                #),
+                                #ft.Container(
+                                    #height=500,
+                                    #width=400,
+                                    #image_src='images/depoimento2.jpg',
+                                    #image_fit=ft.ImageFit.COVER
+                                #),
+                                #ft.Container(
+                                    #height=500,
+                                    #width=400,
+                                    #image_src='images/depoimento3.jpg',
+                                    #image_fit=ft.ImageFit.COVER
+                                #),
+                                #ft.Container(
+                                    #height=500,
+                                    #width=400,
+                                    #image_src='images/depoimento4.jpg',
+                                    #image_fit=ft.ImageFit.COVER
+                                #),
+                            #]
+                        #),
                     ),
                     ft.Container(
                         height=680,
                         width=1300,
                         image_src='images/Fotogif1.gif',
-                        image_fit=ft.ImageFit.CONTAIN,
+                        image_fit=ft.ImageFit.COVER,
                         gradient=ft.LinearGradient(
                             begin=ft.alignment.center_left,
                             end=ft.alignment.bottom_right,
@@ -423,8 +448,8 @@ def main(page: ft.Page):
                                             image_fit=ft.ImageFit.CONTAIN,
                                         ),
                                         ft.TextButton(
+                                            tooltip='Acesse meu Instagram',
                                             text='@anapradopersonal',
-
                                             url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
                                         ),
                                     ]
@@ -452,8 +477,10 @@ def main(page: ft.Page):
                 drawer=ft.NavigationDrawer(  # Ele adiciona um icone de menu no meu appbar
 
 
+
                     controls=[
                         ft.NavigationDrawerDestination(
+
                             # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
                             label='Home',
                             icon=ft.icons.HOME,
@@ -472,20 +499,36 @@ def main(page: ft.Page):
                     # Toda vez que eu clicar no navigationDrawer vai disparar uma função, no caso a função change_route que ira mudar minhas paginas
                 ),
                 end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
+                    elevation=100,
+                    shadow_color=ft.colors.PINK,
+                    bgcolor='black',
+                    tile_padding=ft.padding.only(top=20, bottom=0, left=10, right=10),
+                    indicator_color=ft.colors.PINK,
+                    indicator_shape=ft.RoundedRectangleBorder(radius=20),
+
                     controls=[
-                        ft.NavigationDrawerDestination(
+
+
+                       ft.NavigationDrawerDestination(
                             # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
                             label='Home',
                             icon=ft.icons.HOME,
-                        ),
-                        ft.NavigationDrawerDestination(
+                       ),
+                       ft.NavigationDrawerDestination(
                             label='Consultoria Online',
                             icon=ft.icons.STORE
-                        ),
-                        ft.NavigationDrawerDestination(
+                       ),
+                       ft.NavigationDrawerDestination(
                             label='calculos',
-                            icon=ft.icons.PHOTO
-                        ),
+                            icon=ft.icons.CALCULATE
+                       ),
+                       ft.Container(
+                           height=200,
+                           width=200,
+                           image_src='images/logoAna.png',
+                           image_fit=ft.ImageFit.CONTAIN,
+
+                       ),
 
                     ],
                     on_change=change_route,
@@ -499,6 +542,7 @@ def main(page: ft.Page):
                     vertical_alignment=ft.MainAxisAlignment.CENTER,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     floating_action_button=ft.FloatingActionButton(
+                        tooltip='Contato',
                         content=ft.Image(
                             src='images/whatssfundo.png',
                             fit=ft.ImageFit.CONTAIN
@@ -545,6 +589,11 @@ def main(page: ft.Page):
                                                     size=10
 
                                                 ),
+                                                ft.IconButton(
+                                                    tooltip='Claro/Escuro',
+                                                    icon=ft.icons.BRIGHTNESS_6,
+                                                    on_click=toggle_theme
+                                                ),
                                                 img
                                             ]
                                         )
@@ -561,6 +610,13 @@ def main(page: ft.Page):
 
                     ],
                     end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
+
+                        elevation=100,
+                        shadow_color=ft.colors.PINK,
+                        bgcolor='black',
+                        tile_padding=ft.padding.only(top=20, bottom=0, left=10, right=10),
+                        indicator_color=ft.colors.PINK,
+                        indicator_shape=ft.RoundedRectangleBorder(radius=20),
                         controls=[
                             ft.NavigationDrawerDestination(
                                 # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
@@ -572,8 +628,15 @@ def main(page: ft.Page):
                                 icon=ft.icons.STORE
                             ),
                             ft.NavigationDrawerDestination(
-                                label='calculos',
-                                icon=ft.icons.PHOTO
+                                label='Calculadora Fitnnes',
+                                icon=ft.icons.CALCULATE
+                            ),
+                            ft.Container(
+                                height=200,
+                                width=200,
+                                image_src='images/logoAna.png',
+                                image_fit=ft.ImageFit.CONTAIN,
+
                             ),
                         ],
                         on_change=change_route,
@@ -587,6 +650,7 @@ def main(page: ft.Page):
                     vertical_alignment=ft.MainAxisAlignment.START,
                     horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     floating_action_button=ft.FloatingActionButton(
+                        tooltip='Contato',
                         content=ft.Image(
                             src='images/whatssfundo.png',
                             fit=ft.ImageFit.CONTAIN
@@ -632,6 +696,12 @@ def main(page: ft.Page):
                                                     size=10
 
                                                 ),
+                                                ft.IconButton(
+                                                    tooltip='Claro/Escuro',
+                                                    icon=ft.icons.BRIGHTNESS_6,
+                                                    on_click=toggle_theme
+                                                ),
+
                                                 img
                                             ]
                                         )
@@ -850,8 +920,8 @@ def main(page: ft.Page):
                                                             image_fit=ft.ImageFit.CONTAIN,
                                                         ),
                                                         ft.TextButton(
+                                                            tooltip='Acesse meu Instagram',
                                                             text='@anapradopersonal',
-
                                                             url='https://www.instagram.com/anapradopersonal/?igsh=MzRlODBiNWFlZA%3D%3D',
                                                         ),
                                                     ]
@@ -875,10 +945,17 @@ def main(page: ft.Page):
                                     )
                                 ]
                             )
-                        ),
+                        )
                     ],
                     end_drawer=ft.NavigationDrawer(  # Ele adiciona um segundo menu do outro lado do meu principal
+                        elevation=100,
+                        shadow_color=ft.colors.PINK,
+                        bgcolor='black',
+                        tile_padding=ft.padding.only(top=20, bottom=0, left=10, right=10),
+                        indicator_color=ft.colors.PINK,
+                        indicator_shape=ft.RoundedRectangleBorder(radius=20),
                         controls=[
+
                             ft.NavigationDrawerDestination(
                                 # É um menu de navegação onde irei colocar os 'botoes' para levar a outras paginas , mas tbm posso colocar qualquer outra coisa nesse menu
                                 label='Home',
@@ -889,8 +966,15 @@ def main(page: ft.Page):
                                 icon=ft.icons.STORE
                             ),
                             ft.NavigationDrawerDestination(
-                                label='calculos',
-                                icon=ft.icons.PHOTO
+                                label='Calculadora Fitnnes',
+                                icon=ft.icons.CALCULATE
+                            ),
+                            ft.Container(
+                                height=200,
+                                width=200,
+                                image_src='images/logoAna.png',
+                                image_fit=ft.ImageFit.CONTAIN,
+
                             ),
                         ],
                         on_change=change_route,
